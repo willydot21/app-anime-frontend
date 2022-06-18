@@ -1,0 +1,26 @@
+
+.carousel-item{
+  max-height: 850px;
+}
+
+.carousel-item a img {
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.carousel-item-shadow{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 100vh;
+  background: linear-gradient( rgba(0, 0, 0, 0.0), rgb(0, 0, 0) )
+}
+
+.carousel-item-shadow h1{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}

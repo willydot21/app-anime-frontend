@@ -1,0 +1,21 @@
+
+.home-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  z-index: 100;
+}
+
+.home-navbar-icon {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.home-navbar-links a{
+  margin-right: 15px;
+}

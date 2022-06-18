@@ -1,0 +1,45 @@
+
+:root {
+  --default-text-input-color: rgb(150, 150, 150);
+  --white: rgb(255, 255, 255);
+}
+
+.registration-text-input{
+  position: relative;
+  width: 100%;
+}
+
+.registration-text-input input {
+  background-color: black;
+  border: 1px solid var(--default-text-input-color);
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  padding: 15px 10px;
+  color: white;
+}
+
+.registration-text-input span {
+  position: absolute;
+  left: 0;
+  padding: 15px 10px;
+  pointer-events: none;
+  font-size: 1em;
+  transition: .2s;
+  color: var(--default-text-input-color);
+}
+
+.registration-text-input input:valid ~ span,
+.registration-text-input input:focus ~ span {
+  color: var(--white);
+  transform: translateX(10px) translateY(-7px);
+  font-size: .65em;
+  padding: 0 10px;
+  background-color: black;
+  letter-spacing: .2em;
+}
+
+.registration-text-input input:valid,
+.registration-text-input input:focus {
+  border: 1px solid var(--white);
+}

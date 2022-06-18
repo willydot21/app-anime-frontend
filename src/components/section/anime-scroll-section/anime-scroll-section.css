@@ -1,0 +1,11 @@
+
+.scroll-anime-section {
+  margin: 5px 0px;
+}
+
+.scroll-section-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5px;
+}

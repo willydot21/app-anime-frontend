@@ -1,0 +1,14 @@
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+}
