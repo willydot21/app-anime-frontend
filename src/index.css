@@ -1,4 +1,19 @@
 
+:root {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -12,6 +27,10 @@ a:hover {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+li {
+  list-style: none;
 }
 
 body {

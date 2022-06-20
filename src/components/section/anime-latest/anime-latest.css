@@ -1,0 +1,14 @@
+
+.anime-latest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
+  margin: 60px 5px;
+  background-color: rgb(12, 10, 14);
+  border-radius: 10px;
+  margin: 60px auto;
+  max-width: 1444px;
+  margin-bottom: 100px;
+}

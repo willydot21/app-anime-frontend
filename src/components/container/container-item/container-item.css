@@ -1,12 +1,26 @@
 
 .container-item {
+  display: flex;
+  flex-direction: column;
   margin: 0px 5px;
 }
 
 .container-item img {
   width: 20vw;
+  object-fit: cover;
   max-width: 220px;
   min-width: 110px;
+  min-height: 50px;
   height: auto;
   border-radius: 10px;
+}
+
+.container-item span {
+  font-size: .8em;
+  font-weight: 300;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 17ch;
 }

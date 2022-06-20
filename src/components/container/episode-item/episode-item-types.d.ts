@@ -1,7 +1,5 @@
-
 import { ArticleItem } from "../../../services/api/api-types";
 
-export interface ContainerItemProps {
+export interface EpisodeItemProps {
   item: ArticleItem;
-  link: string;
 }

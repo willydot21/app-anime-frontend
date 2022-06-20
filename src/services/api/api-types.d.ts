@@ -65,7 +65,7 @@ export interface SectionItem {
 }
 
 export interface AnimeAllLatest {
-  movies: ArticleItem[];
+  movies: SectionItem[];
   ovas: SectionItem[];
   specials: SectionItem[];
   animes: ArticleItem[];

@@ -1,0 +1,31 @@
+
+.bottom-navbar {
+  z-index: 100;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+}
+
+.bottom-navbar-link {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: .7em;
+  transition: .2s;
+}
+
+@media (pointer:fine) {
+  .bottom-navbar-link:hover {
+    background-color: rgb(25, 25, 25);
+    color: red;
+  }
+  .bottom-navbar-link:active {
+    background-color: rgb(11, 11, 11);
+    color: rgb(184, 0, 0);
+  }
+}

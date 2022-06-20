@@ -1,31 +1,27 @@
 
 import './anime-scroll-section.css';
-import { NavLink } from "react-router-dom";
 import ContainerItem from "../../container/container-item/container-item";
 import HorizontalScroll from "../../container/horizontal-scroll/horizontal-scroll";
 import { AnimeScrollSectionProps } from "./anime-scroll-section-types";
+import SectionTopbar from '../../navbar/section-topbar/section-topbar';
 
-const ScrollAnimeSection = ({items, section}:AnimeScrollSectionProps) => {
+const ScrollAnimeSection = ({items, section, link}:AnimeScrollSectionProps) => {
 
   return (
     <div className="scroll-anime-section">
 
-      <div className="scroll-section-topbar">
-        <h3>{section}</h3>
-        <NavLink to={`category/${section}`}>
-          <span className="material-icons">
-            chevron_right
-          </span>
-        </NavLink>
-      </div>
+      <SectionTopbar 
+        link={link || ''}
+        section={section}
+      />
 
       <HorizontalScroll>
         <>
         { 
           items.map( item => (
             <ContainerItem 
-              image={item.poster} 
-              link={`anime/${item.id}`} 
+              item={item} 
+              link={`watch/${item.id}`} 
             /> 
           )) 
         }

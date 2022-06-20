@@ -2,10 +2,13 @@
 import './carousel.css';
 import carousel_items from './carousel-items.json';
 
-const HomeCarousel = () => {
+const HomeCarousel = ({carouselRef}:{carouselRef:React.MutableRefObject<null>}) => {
 
   return(
-    <div id="my-carousel" className="carousel slide" data-bs-ride="carousel">
+    <div 
+      id="my-carousel" className="carousel slide" 
+      data-bs-ride="carousel" ref={carouselRef} 
+    >
       <div className="carousel-inner">
         {
           carousel_items.map(el => {

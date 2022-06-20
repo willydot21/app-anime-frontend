@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLogin from './components/form/registration/login';
 import AppRegister from './components/form/registration/register';
 import AppNotFound from './pages/404';
-import AppHome from './pages/home';
+import AppHome from './pages/home/home';
 
 function App() {
   return (
