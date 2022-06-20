@@ -10,7 +10,7 @@ const LatestItem = ({latestItem}:LatestItemProps) => {
   return (
     <div className="latest-item">
       <NavLink to={href}>
-        <img src={latestItem.poster} alt="anime-image" />
+        <img src={latestItem.poster} alt="" />
       </NavLink>
       <div className="latest-item-info">
         <p className="latest-item-title"> { latestItem.name } </p>

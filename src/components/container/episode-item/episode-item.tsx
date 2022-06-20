@@ -18,7 +18,7 @@ const EpisodeItem = ({item}:EpisodeItemProps) => {
       to={`watch/${animeId}/episode/${episode}`} 
       className="episode-item"
     >
-      <img src={poster} /> 
+      <img src={poster} alt="" /> 
       <span className="episode-item-label"> episode {episode} </span>
       <span className="episode-item-title"> {animeName} </span>
     </NavLink>
