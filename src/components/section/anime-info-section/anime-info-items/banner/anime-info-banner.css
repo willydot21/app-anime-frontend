@@ -1,0 +1,38 @@
+.anime-info-banner {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  max-height: 520px;
+}
+
+.banner-shadow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  font-size: 5em;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), black);
+}
+
+.banner-shadow a {
+  color: rgba(224, 224, 224, 0.7);
+  transition: .3s;
+  border: 2px solid;
+  border-radius: 50%;
+}
+
+.banner-shadow a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.anime-info-banner img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}

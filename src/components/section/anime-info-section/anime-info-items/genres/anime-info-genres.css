@@ -1,0 +1,18 @@
+
+.anime-info-genre {
+  font-size: .7em;
+  margin: 5px;
+  padding: 5px;
+  padding-left: 1px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 5px;
+}
+
+.anime-info-genre span {
+  font-size: .6em;
+  margin: 5px;
+}
+
+.anime-info-genre:hover {
+  cursor: pointer;
+}

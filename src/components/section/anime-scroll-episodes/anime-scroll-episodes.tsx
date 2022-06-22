@@ -11,13 +11,11 @@ const AnimeScrollEpisodes = ({items}:AnimeScrollEpisodesProps) => {
     <div className="anime-scroll-episodes">
       <SectionTopbar section="Últimos Episodios" />
       <HorizontalScroll>
-        <>
         {
-          items.map( item => (
+          items.map(item => (
             <EpisodeItem item={item} />
           ))
         }
-        </>
       </HorizontalScroll>
     </div>
   );

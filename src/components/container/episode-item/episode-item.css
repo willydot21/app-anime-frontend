@@ -7,9 +7,10 @@
 }
 
 .episode-item img {
+  width: 30vw;
   height: 70%;
   max-width: 220px;
-  min-width: 150px;
+  min-width: 120px;
   max-height: 120px;
   object-fit: cover;
   object-position: center;

@@ -1,0 +1,14 @@
+
+.tags-wrapper-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media (pointer:fine) {
+  .tags-wrapper-container li:hover {
+    cursor: pointer;
+  }
+}

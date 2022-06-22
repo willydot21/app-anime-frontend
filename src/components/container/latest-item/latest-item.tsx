@@ -5,7 +5,7 @@ import './latest-item.css';
 
 const LatestItem = ({latestItem}:LatestItemProps) => {
 
-  const href = latestItem.id? `watch/${latestItem.id}`: '#';
+  const href = latestItem.id? `anime/${latestItem.id}`: '#';
   
   return (
     <div className="latest-item">

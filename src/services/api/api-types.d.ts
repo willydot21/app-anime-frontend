@@ -4,6 +4,7 @@ export interface AnimeInfo {
   malId: string;
   anime_id: string;
   chapters: number;
+  episodePoster: string;
   poster: string;
   season: string;
   banner: string;
