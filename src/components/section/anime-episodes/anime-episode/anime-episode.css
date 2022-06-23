@@ -1,0 +1,23 @@
+
+.anime-episode {
+  margin: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.anime-episode-right img {
+  width: 25vw;
+  height: 12vw;
+  max-width: 220px;
+  max-height: 100px;
+  margin-right: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (pointer:fine) {
+  .anime-episode:hover {
+    background-color: rgb(10, 10, 10);
+  }
+}

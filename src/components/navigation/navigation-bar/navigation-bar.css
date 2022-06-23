@@ -1,0 +1,60 @@
+
+.navigation-bar {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: rgb(8, 8, 8);
+  width: 100%;
+  margin: 20px auto;
+}
+
+.navigation-bar-button {
+  width: 100%;
+  font-size: 1em;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(93, 93, 93);
+  padding: 20px 10px;
+  border: 0px;
+  transition: .2s;
+}
+
+.navigation-bar-label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+  height: 2px;
+  transition: .2s;
+}
+
+.navigation-bar-active {
+  color: white;
+}
+
+@media (width < 640px) {
+  .navigation-bar-button {
+    font-size: .8em;
+  }
+}
+
+@media (pointer:fine) {
+  .navigation-bar-button:hover {
+    background-color: rgb(13, 13, 13);
+  }
+
+  .navigation-bar-button:active {
+    background-color: rgb(39, 39, 39);
+  }
+}
+
+@media (pointer:none), (pointer:coarse) {
+  .navigation-bar-button:active {
+    background-color: rgb(34, 34, 34);
+  }
+}
+
+@media (width > 1444px) {
+  .navigation-bar-button {
+    padding: 25px 10px;
+  }
+}

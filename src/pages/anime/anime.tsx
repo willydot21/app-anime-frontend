@@ -1,11 +1,11 @@
 
+import './anime.css';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navigation from "../../components/navigation/navigation";
 import AppLoading from "../../components/others/loading";
-import AnimeEpisodes from "../../components/section/anime-episodes/anime-episodes";
 import AnimeInfoSection from "../../components/section/anime-info-section/anime-info-section";
-import ReleatedAnimes from "../../components/section/anime-releated/releated-animes";
-import AnimeReleated from "../../components/section/anime-releated/releated-animes";
+import AnimeNavigationItems from "../../components/section/anime-navigation-items/anime-navigation-items";
 import { fetchAnimeInfo, initialState } from "./anime.utils";
 
 const AppAnime = () => {
@@ -20,22 +20,18 @@ const AppAnime = () => {
 
   return (
     
-    <div className="app-anime">
+    animeInfo.anime_id
+    ? (
+      <div className="app-anime">
 
-      <AnimeInfoSection item={animeInfo} />
-      
-      <AnimeEpisodes 
-        item={{ 
-          episodes: animeInfo.chapters,
-          poster: animeInfo.episodePoster,
-          id: animeInfo.anime_id,
-          name: animeInfo.name,
-          animePoster: animeInfo.poster
-        }}
-      />
+        <AnimeInfoSection item={animeInfo} />
 
-      <ReleatedAnimes releated={animeInfo.releated} />
-    </div> 
+        <div className="small-margin"> 
+          <Navigation elements={AnimeNavigationItems({animeInfo})} defaultItem="Episodios" /> 
+        </div>
+
+      </div> 
+    ) : <AppLoading />
 
   );
   

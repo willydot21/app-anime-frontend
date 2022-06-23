@@ -1,5 +1,5 @@
 
-import '../../../container/episode-item/episode-item.css';
+import './anime-episode.css'
 import { NavLink } from 'react-router-dom';
 import { AnimeEpisodeProps } from "./anime-episode-types";
 
@@ -20,17 +20,19 @@ const AnimeEpisode = ({item}:{item:AnimeEpisodeProps}) => {
   return (
     <NavLink
       to={`anime/${id}/episode/${episode}`}
-      className="episode-item"
+      className="anime-episode"
     >
 
-      <img src={poster} alt={ name + ' image' }
-        onError={ 
-          (e) => { handleImageError((e.target as HTMLImageElement),animePoster); }
-        }
-      />
+      <div className="anime-episode-right"> 
+        <img src={poster} alt={ name + ' image' }
+          onError={ 
+            (e) => { handleImageError((e.target as HTMLImageElement),animePoster); }
+          }
+        />
+        <span className="anime-episode-chapter"> Episodio {episode} </span>
+      </div>
 
-      <span className="episode-item-label"> Episodio {episode} </span>
-      <span className="episode-item-title"> {name + ' ' + episode} </span>
+      <span className="material-icons"> more_vert </span>
       
     </NavLink>
   );

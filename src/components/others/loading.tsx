@@ -1,9 +1,13 @@
 
+import './loading.css';
+
 const AppLoading = () => {
   return (
-    <div className="d-flex justify-content-center">
-      <div className="spinner-border" role="status">
-        <span className="visually-hidden">Loading...</span>
+    <div className="app-loading">
+      <div className="d-flex justify-content-center">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
       </div>
     </div>
   )

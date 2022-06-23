@@ -1,7 +1,5 @@
 
-import './anime-episodes.css';
-import HorizontalScroll from "../../container/horizontal-scroll/horizontal-scroll"
-import AnimeInfoScrollItem from "./anime-episode/anime-episode";
+import AnimeEpisode from "./anime-episode/anime-episode";
 import { AnimeEpisodesProps } from "./anime-episodes-types";
 
 const AnimeEpisodes = ({item}:{item:AnimeEpisodesProps}) => {
@@ -10,18 +8,13 @@ const AnimeEpisodes = ({item}:{item:AnimeEpisodesProps}) => {
 
   return (
     <div className="anime-episodes">
-      <div className='small-margin'>
-        <h3 className="anime-episodes-title"> Episodios </h3>
-        <HorizontalScroll>
-          {
-            episodeRange.map( (episode) => (
-              <AnimeInfoScrollItem 
-                item={ {...item, episode:episode+1} }
-              />
-            ))
-          }
-        </HorizontalScroll>
-      </div>
+      {
+        episodeRange.map((episode) => (
+          <AnimeEpisode
+            item={{ ...item, episode: episode + 1 }}
+          />
+        ))
+      }
     </div>
   );
   

@@ -18,8 +18,26 @@
   width: 30%;
   height: 40vw;
   border-radius: 5px;
-  margin-top: -60px;
   max-width: 240px;
   max-height: 320px;
   z-index: 100;
+}
+
+@media (width < 720px) {
+
+  .anime-info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .anime-info-container img {
+    max-width: none;
+    max-height: none;
+    height: 50vw;
+    width: 40%;
+    object-fit: cover;
+    object-position: center;
+  }
+
 }
