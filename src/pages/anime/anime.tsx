@@ -15,8 +15,14 @@ const AppAnime = () => {
   const params = useParams();
 
   useEffect( () => {
+    
     fetchAnimeInfo(params.id || '', setAnimeInfo);
-  }, []);
+    // fetch elements, when params change.
+
+    setAnimeInfo(initialState);
+    // set loading.
+
+  }, [params]);
 
   return (
     

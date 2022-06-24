@@ -2,21 +2,26 @@
 import './releated-animes.css';
 import { AnimeReleated } from "../../../services/api/api-types";
 import ReleatedItem from "../../container/releated-item/releated-item";
+import NoElements from '../no-elements/no-elements';
 
-const ReleatedAnimes = ({releated}:{releated:AnimeReleated[]}) => {
+const ReleatedAnimes = ({releated, name}:{releated:AnimeReleated[], name:string}) => {
 
   return (
-    releated.length
-    ? (
-      <div className="anime-releated-container">
-        {
-          releated.map( anime => (
-            <ReleatedItem item={anime} />
-          ))
-        }
-      </div>
-    ) 
-    : <></>
+    <div section-name={name} className="navigation-hidden" >
+
+      {
+        releated.length
+        ?( <div className="anime-releated-container">
+            {
+              releated.map(anime => (
+                <ReleatedItem item={anime} />
+              ))
+            }
+          </div>
+        ) : <NoElements />
+
+      }
+    </div>
   );
 
 }

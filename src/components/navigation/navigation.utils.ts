@@ -71,3 +71,27 @@ export const setupOnChange = (
   }
 
 }
+
+export const setActiveSection = (containerRef:React.RefObject<HTMLDivElement>, activeSection:string) => {
+
+  console.log('hola!!!');
+
+  if (containerRef.current) {
+
+    const container = containerRef.current;
+
+    container.querySelectorAll('.navigation-active-section').forEach( node => {
+      node.classList.remove('navigation-active-section');
+    })
+
+    const active = container.querySelector(`div[section-name=${ activeSection }]`) as HTMLDivElement;
+
+    if ( active ) {
+
+      active.classList.add('navigation-active-section');
+
+    }
+
+  }
+
+}

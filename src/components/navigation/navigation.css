@@ -1,0 +1,8 @@
+
+.navigation-hidden {
+  display: none;
+}
+
+.navigation-active-section {
+  display: unset;
+}

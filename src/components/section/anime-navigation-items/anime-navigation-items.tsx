@@ -7,10 +7,10 @@ const AnimeNavigationItems = ({ animeInfo }:{animeInfo:AnimeInfo }) => {
 
   return ({
 
-    'Relacionado': <ReleatedAnimes releated={animeInfo.releated} />,
+    'Relacionado': (<ReleatedAnimes name="Relacionado" releated={animeInfo.releated} />),
 
     'Episodios': (
-      <AnimeEpisodes item={{
+      <AnimeEpisodes name="Episodios" item={{
         episodes: animeInfo.chapters,
         poster: animeInfo.episodePoster,
         id: animeInfo.anime_id,

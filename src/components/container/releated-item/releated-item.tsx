@@ -6,18 +6,16 @@ import { AnimeReleated } from "../../../services/api/api-types";
 const ReleatedItem = ({item}:{item:AnimeReleated}) => {
 
   return (
-    <NavLink className="releated-item" to={`/anime/${item.id}`} >
+    <NavLink className="releated-item" to={`/anime/${item.id}`}>
 
       <div className="releated-item-left">
         <img src={item.image} />
-        <span className="releated-item-type">
-          {item.type}
-        </span>
       </div>
 
-      <div className="releated-item-right">
-        <h5 className="releated-item-title"> {item.name} </h5>
-        <span className="releated-item-year"> {item.name} </span>
+      <h5 className="releated-item-title"> {item.name} </h5>
+      <div className="releated-item-tags">
+        <span className="releated-item-tag"> {item.year} </span>
+        <span className="releated-item-tag"> {item.type} </span>
       </div>
 
     </NavLink>
