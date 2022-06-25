@@ -1,0 +1,18 @@
+
+.normal-rect-input {
+  width: 90%;
+  border-radius: 0%;
+  background-color: rgba(20, 20, 20, 0);
+  border: 0px;
+  border-bottom: 2px solid rgb(80, 80, 80);
+  padding: 10px 10px;
+  margin: 5px;
+  outline: none;
+  color: rgb(180, 180, 180);
+  transition: .2s;
+}
+
+.normal-rect-input:focus {
+  border-bottom: 2px solid white;
+  color: white;
+}

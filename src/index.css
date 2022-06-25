@@ -19,10 +19,6 @@ a {
   color: white;
 }
 
-a:hover {
-  color: rgb(202, 202, 202);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -66,4 +62,10 @@ input:-webkit-autofill{
 
 .material-icons {
   font-size: 30px;
+}
+
+@media (pointer:fine) {
+  a:hover {
+    color: rgb(202, 202, 202);
+  }
 }

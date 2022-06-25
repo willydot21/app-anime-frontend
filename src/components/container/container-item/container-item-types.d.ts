@@ -1,7 +1,12 @@
 
-import { ArticleItem } from "../../../services/api/api-types";
+export interface ContainerItemInterface {
+  name: string;
+  id: string;
+  poster: string;
+  [otherProps: string]: any;
+}
 
 export interface ContainerItemProps {
-  item: ArticleItem;
+  item: ContainerItemInterface;
   link: string;
 }

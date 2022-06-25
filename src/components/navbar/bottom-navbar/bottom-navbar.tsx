@@ -13,7 +13,7 @@ const BottomNavbar = () => {
         <p> Principal </p>
       </NavLink>
 
-      <NavLink to="#" className="bottom-navbar-link">
+      <NavLink to="/search" className="bottom-navbar-link">
         <span className="material-icons">
           search
         </span>
@@ -27,7 +27,7 @@ const BottomNavbar = () => {
         <p> Siguiendo </p>
       </NavLink>
 
-      <NavLink to="#" className="bottom-navbar-link">
+      <NavLink to="/programming" className="bottom-navbar-link">
         <span className="material-icons">
           video_library
         </span>

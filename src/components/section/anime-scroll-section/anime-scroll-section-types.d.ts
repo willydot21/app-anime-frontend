@@ -1,7 +1,8 @@
-import { AnimeArticle } from "../../services/api/api-types";
+
+import { ContainerItemInterface } from "../../container/container-item/container-item-types";
 
 export interface AnimeScrollSectionProps {
   section: string;
-  items: Array<AnimeArticle>;
+  items: Array<ContainerItemInterface>;
   link?: string;
 }

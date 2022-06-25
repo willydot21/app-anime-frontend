@@ -6,6 +6,8 @@ import AppRegister from './components/form/registration/register';
 import AppNotFound from './pages/404';
 import AppHome from './pages/home/home';
 import AppAnime from './pages/anime/anime';
+import AppProgramming from './pages/programming/programming';
+import AppSearch from './pages/search/search';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/login" element={<AppLogin/>} />
           <Route path="/" element={<AppHome/>} />
           <Route path="/anime/:id" element={<AppAnime/>} />
+          <Route path="/search" element={<AppSearch/>} />
+          <Route path="/programming" element={<AppProgramming />} />
         </Routes>
       </BrowserRouter>
     </div>

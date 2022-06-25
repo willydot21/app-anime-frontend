@@ -1,0 +1,11 @@
+
+.app-search {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+}
+
+.app-search .normal-rect-input {
+  align-self: center;
+  margin-top: 20px;
+}

@@ -1,8 +1,8 @@
 
 import './style.css';
-import { RegistrationTextInputProps } from './registration-text-input-types';
+import { PlaceHolderInputProps } from './placeholder-input-types.d.ts';
 
-const RegistrationTextInput = ({placeholder, name, type}: RegistrationTextInputProps) => {
+const PlaceHolderInput = ({placeholder, name, type}: PlaceHolderInputProps) => {
 
   return (
     <div className="registration-text-input">
@@ -20,4 +20,4 @@ const RegistrationTextInput = ({placeholder, name, type}: RegistrationTextInputP
 
 }
 
-export default RegistrationTextInput;
+export default PlaceHolderInput;
