@@ -1,8 +1,9 @@
 
-.normal-rect-input {
-  width: 90%;
+.search-input {
+  right: 0;
+  width: 87%;
   border-radius: 0%;
-  background-color: rgba(20, 20, 20, 0);
+  background-color: rgb(10, 10, 10);
   border: 0px;
   border-bottom: 2px solid rgb(80, 80, 80);
   padding: 10px 10px;
@@ -12,7 +13,7 @@
   transition: .2s;
 }
 
-.normal-rect-input:focus {
+.search-input:focus {
   border-bottom: 2px solid white;
   color: white;
 }

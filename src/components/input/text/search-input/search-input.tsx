@@ -2,9 +2,9 @@
 import './style.css';
 import { useRef } from 'react';
 import { searchInputProps } from './search-input-types';
-import { handlerOnKeyUp } from './search-input.utils';
+import { handlerOnFocus, handlerOnKeyUp } from './search-input.utils';
 
-const SearchInput = ( { searchingState, setQueryItems }: searchInputProps ) => {
+const SearchInput = ({ searchingState, setQueryItems, suggestionsRef }: searchInputProps ) => {
 
   const [ searching, setSearching ] = searchingState;
 
@@ -17,9 +17,12 @@ const SearchInput = ( { searchingState, setQueryItems }: searchInputProps ) => {
 
   return ( 
     <input type="text" 
-      className="normal-rect-input"
+      className="search-input"
       onKeyUp={ fetchQuery }
+      onFocus={ () => handlerOnFocus(suggestionsRef) }
       ref={ $this }
+      placeholder="search"
+      name="search-input"
     />
   );
 

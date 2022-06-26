@@ -1,5 +1,8 @@
+import React from "react";
 
 export interface searchInputProps {
+
+  suggestionsRef: React.RefObject<HTMLDivElement>;
 
   searchingState: [
     searching: boolean,

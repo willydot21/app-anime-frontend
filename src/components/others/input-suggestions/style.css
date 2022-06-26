@@ -1,0 +1,43 @@
+
+.input-suggestions {
+  z-index: 100;
+  position: absolute;
+  top: 100%;
+  width: 87%;
+  background-color: rgb(53, 53, 53);
+  min-height: 70px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-suggestion {
+  display: flex;
+  align-items: center;
+  background-color: rgb(14, 14, 14);
+  margin: 1px 0px;
+}
+
+.input-suggestion img {
+  margin: 5px;
+  width: 10%;
+  min-width: 60px;
+  min-height: 30px;
+  max-width: 80px;
+  max-height: 40px;
+  height: 5vw;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.input-suggestion-title {
+  font-weight: 100;
+  margin-left: 5px;
+  max-width: 25ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -2,10 +2,17 @@
 .app-search {
   display: flex;
   flex-direction: column;
-  margin: 0px auto;
+  max-width: 1444px;
+  margin: auto;
 }
 
-.app-search .normal-rect-input {
-  align-self: center;
+.input-suggestions-wrapper {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-suggestions-wrapper {
+  position: relative;
 }

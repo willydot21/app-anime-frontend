@@ -1,5 +1,5 @@
 
-import './container-item.css';
+import './style.css';
 import { NavLink } from "react-router-dom";
 import { ContainerItemProps } from "./container-item-types";
 

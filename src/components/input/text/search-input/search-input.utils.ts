@@ -5,7 +5,7 @@ import React from "react";
 
 let timer: NodeJS.Timeout;
 
-const waitTime = 1000;
+const waitTime = 500;
 
 const fetchItems = async ( 
   query: string,
@@ -42,6 +42,36 @@ export const handlerOnKeyUp = async (
       await fetchItems(query, setQueryItems);
       setSearching(false);
     }, waitTime);
+
+  }
+
+}
+
+export const clickOutside = (
+  ev: MouseEvent,
+  suggestionsRef:React.RefObject<HTMLDivElement>
+) => {
+
+  if ( 
+    suggestionsRef.current && 
+    (ev.target as HTMLInputElement).name !== 'search-input' &&
+    !suggestionsRef.current.contains(ev.target as HTMLInputElement)
+  ) {
+
+    suggestionsRef.current.style.display='none';
+    
+  } // check if click outside.
+
+  document.onmousedown = null;
+}
+
+export const handlerOnFocus = (suggestionsRef:React.RefObject<HTMLDivElement>) => {
+
+  if (suggestionsRef.current) {
+
+    suggestionsRef.current.style.display='unset';
+
+    document.addEventListener('mousedown', (ev) => clickOutside(ev, suggestionsRef));
 
   }
 

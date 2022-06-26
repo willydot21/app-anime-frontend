@@ -1,0 +1,41 @@
+
+.default-container-item {
+  display: flex;
+  flex-direction: column;
+  width: 40.9%;
+}
+
+.default-container-item img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.default-container-item span {
+  font-size: 1.1em;
+  font-weight: 300;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 17ch;
+}
+
+@media (width > 600px) {
+  .default-container-item {
+    width: 26.6%;
+  }
+}
+
+@media (width > 900px) {
+  .default-container-item {
+    width: 19.9%;
+  }
+}
+
+@media (width > 1200px) {
+  .default-container-item {
+    width: 16%;
+  }
+}
