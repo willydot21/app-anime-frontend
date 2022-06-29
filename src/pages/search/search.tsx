@@ -3,9 +3,9 @@ import './search.css';
 import { useRef, useState } from "react";
 import { AnimeSearch } from '../../services/api/api-types';
 import { queryItemsInitialState } from './search.utils';
-import SearchInput from '../../components/input/text/search-input/search-input';
-import AnimeSearchItems from '../../components/section/anime-search-items/anime-search-items';
-import InputSuggestions from '../../components/others/input-suggestions/input-suggestions';
+import SearchSection from '../../components/section/search-section/search-section';
+import { handlerClick } from '../../components/input/button/search-button/search-button.utils';
+import SearchWrapper from '../../components/section/search-wrapper/search-wrapper';
 
 const AppSearch = () => {
 
@@ -13,29 +13,25 @@ const AppSearch = () => {
 
   const [ queryItems, setQueryItems ] = useState<AnimeSearch>(queryItemsInitialState);
 
-  const inputSuggestions = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // const suggestionsRef = useRef<HTMLDivElement>(null);
 
   return (
 
     <div className="app-search">
 
-      <div className="input-suggestions-wrapper">
+      <SearchSection 
+        inputRef={inputRef}
+        searchingState={[ searching, setSearching ]}
+        setQueryItems={setQueryItems}
+        handlerOnClick={handlerClick}
+      />
 
-        <SearchInput 
-          searchingState={ [searching, setSearching] }
-          setQueryItems={ setQueryItems }
-          suggestionsRef={ inputSuggestions }
-        />
-
-        <InputSuggestions 
-          _ref={inputSuggestions}
-          suggestions={queryItems.anime_results} 
-          searching={searching}
-        />
-        
-      </div>
-
-      <AnimeSearchItems items={queryItems} />
+      <SearchWrapper 
+        searching={searching} 
+        queryItemsState={[queryItems, setQueryItems]} 
+      />
       
     </div>
     

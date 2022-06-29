@@ -1,26 +1,27 @@
 
 import './style.css';
-import { useRef } from 'react';
 import { searchInputProps } from './search-input-types';
 import { handlerOnFocus, handlerOnKeyUp } from './search-input.utils';
 
-const SearchInput = ({ searchingState, setQueryItems, suggestionsRef }: searchInputProps ) => {
+const SearchInput = ({ searchingState, setQueryItems, suggestionsRef, inputRef }: searchInputProps ) => {
 
   const [ searching, setSearching ] = searchingState;
 
-  const $this = useRef<HTMLInputElement>(null);
-
   const fetchQuery = async () => {
     setSearching(true);
-    handlerOnKeyUp( $this, setQueryItems, setSearching );
+    handlerOnKeyUp( inputRef, setQueryItems, setSearching );
   }
 
   return ( 
     <input type="text" 
       className="search-input"
       onKeyUp={ fetchQuery }
-      onFocus={ () => handlerOnFocus(suggestionsRef) }
-      ref={ $this }
+      onFocus={ 
+        suggestionsRef
+        ? () => {handlerOnFocus(suggestionsRef)}
+        : undefined 
+      }
+      ref={ inputRef }
       placeholder="search"
       name="search-input"
     />

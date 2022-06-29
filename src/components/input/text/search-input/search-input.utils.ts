@@ -5,9 +5,9 @@ import React from "react";
 
 let timer: NodeJS.Timeout;
 
-const waitTime = 500;
+const waitTime = 100;
 
-const fetchItems = async ( 
+export const fetchQueryItems = async ( 
   query: string,
   setQueryItems: React.Dispatch<React.SetStateAction<AnimeSearch>>
 ) => {
@@ -39,7 +39,7 @@ export const handlerOnKeyUp = async (
     const query = $this.current.value;
 
     timer = setTimeout( async () => {
-      await fetchItems(query, setQueryItems);
+      await fetchQueryItems(query, setQueryItems);
       setSearching(false);
     }, waitTime);
 
@@ -58,7 +58,7 @@ export const clickOutside = (
     !suggestionsRef.current.contains(ev.target as HTMLInputElement)
   ) {
 
-    suggestionsRef.current.style.display='none';
+    suggestionsRef.current.style.opacity='0%';
     
   } // check if click outside.
 
@@ -69,7 +69,7 @@ export const handlerOnFocus = (suggestionsRef:React.RefObject<HTMLDivElement>) =
 
   if (suggestionsRef.current) {
 
-    suggestionsRef.current.style.display='unset';
+    suggestionsRef.current.style.opacity='100%';
 
     document.addEventListener('mousedown', (ev) => clickOutside(ev, suggestionsRef));
 

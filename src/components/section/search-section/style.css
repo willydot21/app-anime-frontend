@@ -1,0 +1,13 @@
+
+.search-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 86%;
+}
+
+.search-section .separator {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArticleItem } from '../../../services/api/api-types';
 import './style.css';
@@ -25,11 +25,10 @@ const InputSuggestions = (
         )
 
         : (
-          <div className="loading-suggestions">
-            <div className="spinner-border" role="status">
-              <span className="visually-hidden">Loading...</span>
+            <div className="d-flex align-items-center">
+              <strong>Loading...</strong>
+              <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
             </div>
-          </div>
         )
 
       }

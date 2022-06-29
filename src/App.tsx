@@ -20,7 +20,7 @@ function App() {
           <Route path="/" element={<AppHome/>} />
           <Route path="/anime/:id" element={<AppAnime/>} />
           <Route path="/search" element={<AppSearch/>} />
-          <Route path="/programming" element={<AppProgramming />} />
+          <Route path="/programming" element={<AppProgramming/>} />
         </Routes>
       </BrowserRouter>
     </div>

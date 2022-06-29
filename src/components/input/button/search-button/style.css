@@ -1,0 +1,33 @@
+
+.search-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 7px 20px;
+  border: 1px solid rgb(80, 80, 80);
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  transition: .2s;
+  width: 10%;
+  max-width: 100px;
+  min-width: 50px;
+}
+
+@media (pointer:fine) {
+  .search-button:hover {
+    background-color: rgb(21, 21, 21);
+  }
+  .search-button:active {
+    background-color: rgb(60, 60, 60);
+    border-color: grey;
+  }
+}
+
+@media (width < 600px) {
+  .search-button {
+    width: 20%;
+  }
+}

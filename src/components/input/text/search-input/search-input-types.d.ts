@@ -2,7 +2,9 @@ import React from "react";
 
 export interface searchInputProps {
 
-  suggestionsRef: React.RefObject<HTMLDivElement>;
+  inputRef: React.RefObject<HTMLInputElement>;
+
+  suggestionsRef?: React.RefObject<HTMLDivElement> | undefined;
 
   searchingState: [
     searching: boolean,

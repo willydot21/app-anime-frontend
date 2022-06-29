@@ -74,6 +74,7 @@ export interface AnimeAllLatest {
 }
 
 export interface AnimeSearch {
+  query: string;
   anime_results: ArticleItem[];
   page: number;
   total_pages: number;  

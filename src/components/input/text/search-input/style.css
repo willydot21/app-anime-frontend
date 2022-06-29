@@ -1,19 +1,36 @@
 
 .search-input {
   right: 0;
-  width: 87%;
-  border-radius: 0%;
   background-color: rgb(10, 10, 10);
-  border: 0px;
-  border-bottom: 2px solid rgb(80, 80, 80);
+  border: 1px solid rgb(80, 80, 80);
   padding: 10px 10px;
-  margin: 5px;
   outline: none;
   color: rgb(180, 180, 180);
   transition: .2s;
+  border-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 100%;
 }
 
 .search-input:focus {
-  border-bottom: 2px solid white;
+  border: 1px solid grey;
   color: white;
+  background-color: rgb(20, 20, 20);
+}
+
+@media (pointer:fine) {
+  .search-input:hover {
+    background-color: rgb(20, 20, 20);
+  }
+  .search-input:active {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(180, 180, 180);
+  }
+}
+
+@media (width < 600px) {
+  .search-input {
+    width: 60%;
+  }
 }
