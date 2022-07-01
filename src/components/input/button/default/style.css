@@ -1,0 +1,24 @@
+
+.app-default-button {
+  width: 25%;
+  font-size: .9em;
+  word-break: break-all;
+  background-color: black;
+  color: white;
+  border: 0;
+  padding: 15px 10px;
+  font-weight: 600;
+  border-radius: 5px;
+  max-width: 144px;
+  transition: .2s;
+}
+
+@media (pointer:fine) {
+  .app-default-button:hover {
+    filter: brightness(1.3);
+  }
+}
+
+.app-default-button:active {
+  filter: brightness(2);
+}

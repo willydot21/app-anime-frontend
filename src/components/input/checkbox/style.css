@@ -1,0 +1,57 @@
+
+.app-checkbox-container {
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 20, 20);
+  margin: 2px 0px;
+  padding: 15px 20px;
+  transition: .3s;
+}
+
+.app-checkbox {
+  cursor: inherit;
+  margin-right: 25px;
+  appearance: none;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 0.10em solid currentColor;
+  border-radius: 0.15em;
+}
+
+.app-checkbox::before {
+  display: block;
+  margin: 0px auto;
+  margin-top: 1.5px;
+  content: "";
+  width: 0.60em;
+  height: 0.60em;
+  transform: scale(0);
+  transition: 80ms transform ease-in-out;
+  box-shadow: inset 1em 1em rgb(255, 170, 0);
+}
+
+.app-checkbox:checked::before {
+  transform: scale(1);
+}
+
+.app-checkbox-label {
+  cursor: inherit;
+  font-weight: 600;
+}
+
+@media (pointer:fine) {
+  .app-checkbox-container:hover {
+    background-color: rgb(40, 40, 40);
+    cursor: pointer;
+  }
+  .app-checkbox-container:active {
+    background-color: rgb(60, 60, 60);
+  }
+}
+
+@media (pointer:none), (pointer:coarse) {
+  .app-checkbox-container:active {
+    background-color: rgb(40, 40, 40);
+  }
+}

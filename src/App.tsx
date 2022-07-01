@@ -8,6 +8,7 @@ import AppHome from './pages/home/home';
 import AppAnime from './pages/anime/anime';
 import AppProgramming from './pages/programming/programming';
 import AppSearch from './pages/search/search';
+import AppSeries from './pages/series/series';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/anime/:id" element={<AppAnime/>} />
           <Route path="/search" element={<AppSearch/>} />
           <Route path="/programming" element={<AppProgramming/>} />
+          <Route path="/series" element={<AppSeries/>} />
         </Routes>
       </BrowserRouter>
     </div>

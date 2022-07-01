@@ -2,15 +2,16 @@
 import './style.css';
 import { PlaceHolderInputProps } from './placeholder-input-types.d.ts';
 
-const PlaceHolderInput = ({placeholder, name, type}: PlaceHolderInputProps) => {
+const PlaceHolderInput = ({placeholder, name, type, _ref}: PlaceHolderInputProps) => {
 
   return (
-    <div className="registration-text-input">
+    <div className="placeholder-text-input">
       <input 
         name={name || ''}
         type={type || 'text'}
-        autoComplete='on'
+        autoComplete='off'
         required
+        ref={_ref}
       />
       <span>
         {placeholder}

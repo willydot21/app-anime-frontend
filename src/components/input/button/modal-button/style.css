@@ -1,0 +1,25 @@
+
+.modal-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 15px;
+  color: white;
+  background-color: rgb(15, 15, 15);
+  border: 0px;
+  transition: .2s;
+  font-weight: 600;
+}
+
+@media (pointer:fine) {
+  .modal-button:hover {
+    background-color: rgb(30, 30, 30);
+    color: rgb(233, 233, 233);
+  }
+}
+
+.modal-button:active {
+  background-color: rgb(45, 45, 45);
+  color: rgb(200, 200, 200);
+}

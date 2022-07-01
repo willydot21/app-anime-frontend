@@ -1,0 +1,25 @@
+
+.filters-form { 
+  max-width: 1080px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgb(15, 15, 15);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.filters-form .placeholder-text-input input {
+  background-color: rgb(15, 15, 15);
+}
+
+.filters-form .placeholder-text-input input:valid ~ span,
+.filters-form .placeholder-text-input input:focus ~ span {
+  color: rgb(255, 170, 80);
+  background-color: rgb(15, 15, 15);
+}
+
+.filters-form .placeholder-text-input input:valid,
+.filters-form .placeholder-text-input input:focus {
+  border: 2px solid rgb(255, 170, 80);
+}
