@@ -9,7 +9,7 @@ const EpisodeItem = ({item}:EpisodeItemProps) => {
 
   const episode = id.split('-').at(-1);
 
-  const animeId = id.split('-').slice(0, id.split('-').length-2).join('-');
+  const animeId = id.split('-').slice(0, id.split('-').length-1).join('-');
 
   const animeName = name.split(' ').slice(0, name.split(' ').length-1).join(' ');
   

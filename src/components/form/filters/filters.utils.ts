@@ -1,5 +1,4 @@
 
-import { Filters } from "../../../services/api/api-types";
 import { filtersInitialState } from "../../../pages/series/series.utils";
 import { FormFiltersItems, FormFiltersItemsWithoutRef, FormFiltersItemsWithStates } from "./filters-types";
 
@@ -97,12 +96,28 @@ const getArrayByName = (checkboxValues:[string, string[]][], itemName:string) =>
 }
 
 const areValidYears = (years:string[]) => {
-  return years.every( year => ( 
-    (parseInt(year) >= 1950) && 
-    (parseInt(year) <= new Date().getFullYear()) 
-  ));
-  // if year greater or equal than 1950 and smaller than actual date, returns year
-  // otherwise doesn't return.
+
+  const actualDate = new Date().getFullYear();
+
+  const parsedYears = years.map( (year, i) => {
+
+    const intYear = parseInt(year); 
+
+    if ((intYear>=1950) && (intYear<=actualDate)) return intYear;
+
+  } ).sort();
+
+  // if year greater or equal than 1950 and smaller than actual date, and sort in ascending order
+  // returns year otherwise doesn't return.
+
+  return (
+    parsedYears.every( n => n !== undefined )
+    ? parsedYears.map( year => String(year) )
+    : ['1950', `${actualDate}`] 
+  );
+
+  // check if all are not undefined.
+
 }
 
 const applyFormChanges = ({ setStates, refs, states }:FormFiltersItemsWithStates) => {
@@ -131,7 +146,7 @@ const applyFormChanges = ({ setStates, refs, states }:FormFiltersItemsWithStates
   const genres = getArrayByName(checkboxValues as [string, string[]][], 'genres');
 
   setFiltersForm({
-    years: areValidYears(inputYears) ? inputYears : [],
+    years: areValidYears(inputYears),
     sort: parseState(sort) || '',
     status: parseState(status) || '',
     types,

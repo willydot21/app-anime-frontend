@@ -1,13 +1,13 @@
 
 import { useEffect, useState } from "react";
 import { SearchWrapperProps } from "./search-wrapper-types";
-import { AnimeSearch } from "../../../services/api/api-types";
+import { AnimeSearch, FiltersResult } from "../../../services/api/api-types";
 import LoadingItems from "../../others/loading-items/loading-items";
 import AnimeSearchItems from "../anime-search-items/anime-search-items";
 import { setupSearchWrapper } from "./search-wrapper.utils";
 import LoadingMore from "../../others/loading-more/loading-more";
 
-const componentRenderItems = (searching:boolean, items:AnimeSearch) => {
+const componentRenderItems = (searching:boolean, items:AnimeSearch|FiltersResult) => {
   return (
     !searching
     ? <AnimeSearchItems items={items}/>
@@ -15,7 +15,7 @@ const componentRenderItems = (searching:boolean, items:AnimeSearch) => {
   );
 }
 
-const SearchWrapper = ({ queryItemsState, searching }:SearchWrapperProps) => {
+const SearchWrapper = ({ queryItemsState, searching, callbackLoadMore }:SearchWrapperProps) => {
 
   const [ items ] = queryItemsState;
 
@@ -26,7 +26,7 @@ const SearchWrapper = ({ queryItemsState, searching }:SearchWrapperProps) => {
     setupSearchWrapper({
       queryItemsState: queryItemsState,
       loadingState: [loading, setLoading]
-    });
+    }, callbackLoadMore);
 
   }, [ items ]);
 

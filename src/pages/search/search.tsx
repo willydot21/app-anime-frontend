@@ -2,7 +2,7 @@
 import './search.css';
 import { useRef, useState } from "react";
 import { AnimeSearch } from '../../services/api/api-types';
-import { queryItemsInitialState } from './search.utils';
+import { handlerLoadMore, queryItemsInitialState } from './search.utils';
 import SearchSection from '../../components/section/search-section/search-section';
 import { handlerClick } from '../../components/input/button/search-button/search-button.utils';
 import SearchWrapper from '../../components/section/search-wrapper/search-wrapper';
@@ -14,8 +14,6 @@ const AppSearch = () => {
   const [ queryItems, setQueryItems ] = useState<AnimeSearch>(queryItemsInitialState);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  // const suggestionsRef = useRef<HTMLDivElement>(null);
 
   return (
 
@@ -31,6 +29,7 @@ const AppSearch = () => {
       <SearchWrapper 
         searching={searching} 
         queryItemsState={[queryItems, setQueryItems]} 
+        callbackLoadMore={() => handlerLoadMore(queryItems, setQueryItems)}
       />
       
     </div>
