@@ -2,6 +2,12 @@
 import { filtersInitialState } from "../../../pages/series/series.utils";
 import { FormFiltersItems, FormFiltersItemsWithoutRef, FormFiltersItemsWithStates } from "./filters-types";
 
+const closeForm = (form:React.RefObject<HTMLFormElement>) => {
+  if (form.current) {
+    form.current.style.top = '100%';
+  }
+}
+
 // clear functionality.
 const resetCheckbox = (checkboxContainers:HTMLDivElement[]) => {
 
@@ -162,7 +168,8 @@ export const formFiltersAction = (filterItems:FormFiltersItems, action:string) =
     inputEndYear,
     inputStartYear,
     checkboxCategory, 
-    checkboxTypes
+    checkboxTypes,
+    filtersForm
   } = filterItems.refs;
 
   if (
@@ -190,6 +197,8 @@ export const formFiltersAction = (filterItems:FormFiltersItems, action:string) =
         break;
 
     } // end switch
+
+    closeForm(filtersForm);
   
   } // end if
 

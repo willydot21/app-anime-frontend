@@ -22,7 +22,7 @@ const AppSeries = () => {
   }, []);
 
   return (
-    <div className="app-series">
+    <div className="app-series" style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
 
       <FiltersForm externalState={[filtersForm, setFiltersForm]} />
 

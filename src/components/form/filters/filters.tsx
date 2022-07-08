@@ -1,6 +1,6 @@
 
 import './style.css';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SelectCategory from './select-category/select-category';
 import SelectType from './select-type/select-type';
 import ModalButton from '../../input/button/modal-button/modal-button';
@@ -9,6 +9,7 @@ import AppDropdown from '../../dropdown/dropdown';
 import TopButtons from './top-buttons/top-buttons';
 import { formFiltersAction } from './filters.utils';
 import { FiltersFormProps } from './filters-types';
+import { setupDraggableForm, showFiltersForm } from './filters.drag';
 
 const FiltersForm = ({ externalState }:FiltersFormProps) => {
 
@@ -20,42 +21,58 @@ const FiltersForm = ({ externalState }:FiltersFormProps) => {
   const checkboxTypes = useRef<HTMLDivElement>(null);
   const inputStartYear = useRef<HTMLInputElement>(null);
   const inputEndYear = useRef<HTMLInputElement>(null);
+  const filtersForm = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    setupDraggableForm(filtersForm);
+  }, []);
 
   return (
-    <form className="filters-form">
+    <div className="filters-container">
+      <form className="filters-form" ref={filtersForm}>
 
-      <TopButtons click={
-          (type:string) => formFiltersAction({ 
-            states:{sort, status},
-            setStates:{setStatus, setSort, setFiltersForm}, 
-            refs:{checkboxCategory, checkboxTypes, inputEndYear, inputStartYear} 
-          }, type)
-        }
-      />
+        <TopButtons click={
+            (type:string) => formFiltersAction({ 
+              states:{sort, status},
+              setStates:{setStatus, setSort, setFiltersForm}, 
+              refs:{checkboxCategory, checkboxTypes, inputEndYear, inputStartYear, filtersForm} 
+            }, type)
+          }
+        />
 
-      <AppDropdown options={['Más recientes', 'Menos recientes']}
-        name="Ordenar"
-        externalState={[sort, setSort]}
-      />
+        <div className="separator-scroll">
+        <AppDropdown options={['Más recientes', 'Menos recientes']}
+          name="Ordenar"
+          externalState={[sort, setSort]}
+        />
 
-      <AppDropdown options={['Finalizado', 'En emisión', 'Proximamente']}
-        name="Estado"
-        externalState={[status, setStatus]}
-      />
+        <AppDropdown options={['Finalizado', 'En emisión', 'Proximamente']}
+          name="Estado"
+          externalState={[status, setStatus]}
+        />
 
-      <PlaceHolderInput placeholder="Desde el año" type="number" _ref={inputStartYear} />
+        <PlaceHolderInput placeholder="Desde el año" type="number" _ref={inputStartYear} />
 
-      <PlaceHolderInput placeholder="Hasta el año" type="number" _ref={inputEndYear} />
+        <PlaceHolderInput placeholder="Hasta el año" type="number" _ref={inputEndYear} />
 
-      <SelectCategory checkboxContainer={checkboxCategory} />
+        <SelectCategory checkboxContainer={checkboxCategory} />
 
-      <SelectType checkboxContainer={checkboxTypes} />
+        <SelectType checkboxContainer={checkboxTypes} />
 
-      <ModalButton id="select-category" name="Categorias" />
+        <ModalButton id="select-category" name="Categorias" />
 
-      <ModalButton id="select-type" name="Tipos" />
+        <ModalButton id="select-type" name="Tipos" />
+        </div>
 
-    </form>
+      </form>
+
+      <button 
+        className="filters-activator material-icons" 
+        onClick={() => showFiltersForm(filtersForm)}
+      > menu_open
+      </button>
+
+    </div>
   );
 
 }

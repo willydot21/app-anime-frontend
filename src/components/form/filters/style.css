@@ -1,12 +1,42 @@
 
+.filters-container {
+  width: 100%;
+}
+
 .filters-form { 
-  max-width: 1080px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(15, 15, 15);
+  padding: 10px 15px;
+  transition: all .3s ease-out;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+  z-index: 1500;
+}
+
+.filters-form .separator-scroll {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: rgb(15, 15, 15);
-  padding: 10px 15px;
-  border-radius: 5px;
+  overflow: auto;
+}
+
+.filters-activator {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 2em;
+  background-color: rgb(255, 123, 0);
+  color: white;
+  border: unset;
+  margin-bottom: 15px;
+  margin-right: 15px;
 }
 
 .filters-form .placeholder-text-input input {
@@ -23,3 +53,4 @@
 .filters-form .placeholder-text-input input:focus {
   border: 2px solid rgb(255, 170, 80);
 }
+

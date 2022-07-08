@@ -8,6 +8,7 @@ export interface FormFiltersItems {
     checkboxTypes: React.RefObject<HTMLDivElement>
     inputStartYear: React.RefObject<HTMLInputElement>
     inputEndYear: React.RefObject<HTMLInputElement>
+    filtersForm: React.RefObject<HTMLFormElement>
   }
 
   setStates: {
