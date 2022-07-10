@@ -1,90 +1,89 @@
 
-var prevCursorY=0, originalTop=0, hasScrolled=false;
+var prevCursorY=0;
 
 function setElementCursor(clientY:number, form:HTMLFormElement) {
   form.style.top = (form.offsetTop - clientY) + 'px';
 }
 
-function dragMouseDown(e:MouseEvent, form:HTMLFormElement) {
+function dragMouseOut(ev:MouseEvent, form:HTMLFormElement, originalTop:number) {
+
+  if (!form.contains(ev.target as Element)) {
+
+    dragStop(form, originalTop);
+
+  }
+
+}
+
+function dragStartTouch(e:TouchEvent, form:HTMLFormElement, originalTop:number) {
 
   e = e || window.event;
+
+  prevCursorY = e.touches[0].clientY;
+
   form.style.transitionDuration = 'unset';
 
-  prevCursorY = e.clientY;
-
-  document.onmousemove = (ev) => dragElement(ev, form);
-  form.onmouseup = () => dragStop(form);
-  document.onmouseleave =  () => dragStop(form);
+  document.ontouchmove = (ev) => dragElement(ev.touches[0].clientY, form);
+  form.ontouchend = () => dragStop(form, originalTop);
 
 }
 
-function dragElement(e:MouseEvent, form:HTMLFormElement) {
+function dragStartMouse(e:MouseEvent, form:HTMLFormElement, originalTop:number) {
 
   e = e || window.event;
-  e.preventDefault();
-  hasScrolled = true;
 
-  const clientY = prevCursorY - e.clientY;
   prevCursorY = e.clientY;
 
-  setElementCursor(clientY, form);
+  form.style.transitionDuration = 'unset';
+
+  document.onmousemove = (ev) => dragElement(ev.clientY, form);
+  form.onmouseup = () => dragStop(form, originalTop);
+  document.onmouseleave = () => dragStop(form, originalTop);
+  document.onmouseout = (ev) => dragMouseOut(ev, form, originalTop)
 
 }
 
-function dragStop(form:HTMLFormElement) {
+function dragElement(evClientY:number, form:HTMLFormElement) {
 
-  form.onmouseup = null;
+  if (!form.classList.contains('filters-focus')) {
+
+    const clientY = prevCursorY - evClientY;
+
+    prevCursorY = evClientY;
+
+    setElementCursor(clientY, form);
+  
+  }
+
+}
+
+function dragStop(form:HTMLFormElement, originalTop:number) {
+
   form.style.transitionDuration = '.3s';
+  form.onmouseup = null;
+  form.ontouchend = null;
   document.onmousemove = null;
   document.onmouseleave = null;
+  document.onmouseout = null;
+  document.ontouchmove = null;
 
-  if ((form.offsetTop>=(originalTop*1.5)) && hasScrolled) {
+  if (form.offsetTop>=(originalTop*1.5)) {
     form.style.top = '100%';
-  }
-  // check if is scrolled to limit.
-
-  if (form.offsetTop <= document.documentElement.offsetTop+100) {
-    form.style.top = '0%';
-    console.log(document.documentElement.offsetTop, form.offsetTop);
-
-  }
-
-  else if (
-    ((form.offsetTop < originalTop) || 
-    !(form.offsetTop>=(originalTop*1.5))) && 
-    hasScrolled
-  ) {
-    form.style.top = '40%';
+    document.body.style.overflow = 'auto';
+  } else if (
+    !form.classList.contains('filters-focus')) {
+    form.style.top = originalTop+'px';
   }
   // check if is scrolling top.
 
 }
 
-export function showFiltersForm(form:React.RefObject<HTMLFormElement>) {
+export function setupDraggableForm(form:HTMLFormElement, originalTop:number) {
 
-  if (form.current) {
+  form.style.top = '100%';
 
-    const $this = form.current;
+  form.onmousedown = (e) => dragStartMouse(e, form, originalTop);
 
-    $this.style.top = '40%';
-
-  }
-
-}
-
-export const setupDraggableForm = (form:React.RefObject<HTMLFormElement>) => {
-
-  if (form.current) {
-
-    const $this = form.current;
-
-    originalTop = $this.offsetTop;
-
-    $this.style.top = '100%';
-    // hide form.
-
-    $this.onmousedown = (e) => dragMouseDown(e, $this);
-
-  }
+  form.ontouchstart = (e) => dragStartTouch(e, form, originalTop);
 
 }

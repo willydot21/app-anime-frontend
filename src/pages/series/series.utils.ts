@@ -7,9 +7,9 @@ import { LoadMoreParams } from "./series-types";
 export const filtersInitialState:Filters = {
   types: [],
   genres: [],
-  years: [],
-  status: '',
-  sort: '',
+  years: ['1950', '2022'],
+  status: 'finished',
+  sort: 'recent',
   page: 0
 }
 

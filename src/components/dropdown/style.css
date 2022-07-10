@@ -3,7 +3,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 1444px;
 }
 
 .app-dropdown-name {
@@ -13,11 +12,10 @@
 
 .app-dropdown-select {
   display: flex;
-  padding: 10px 5px;
+  padding: 5px;
   align-items: center;
   justify-content: space-between;
   color: rgb(255, 255, 255);
-  border-radius: 5px;
 }
 
 .app-dropdown-options {

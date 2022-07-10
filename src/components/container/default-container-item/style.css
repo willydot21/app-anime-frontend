@@ -4,6 +4,7 @@
   flex-direction: column;
   width: 40.9%;
   min-width: 110px;
+  margin: 0px 10px;
 }
 
 .default-container-item img {
@@ -41,5 +42,6 @@
   .default-container-item {
     width: 16%;
     min-width: 190px;
+    max-width: 300px;
   }
 }

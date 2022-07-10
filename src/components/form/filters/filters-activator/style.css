@@ -1,0 +1,52 @@
+
+.filters-activator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: .9em;
+  background-color: rgb(255, 247, 0);
+  color: rgb(0, 0, 0);
+  border: unset;
+  margin-bottom: 5%;
+  margin-right: 4%;
+  padding: 2%;
+  border-radius: 30px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.activator-text {
+  opacity: 0%;
+  transition: .2s;
+  width: 0;
+}
+
+.activator-text-active {
+  opacity: 100%;
+  width: auto;
+  margin: 0px 10px;
+}
+
+@media (width > 800px) {
+  .filters-activator {
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+}
+
+@media (width > 1570px) {
+  .filters-activator {
+    z-index: 2000;
+    display: none;
+  }
+}
+
+@media (width > 1740px) {
+  .filters-activator {
+    display: flex;
+  }
+}

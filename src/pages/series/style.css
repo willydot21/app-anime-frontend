@@ -1,0 +1,10 @@
+
+.app-series {
+  max-width: 1444px;
+  margin: auto;
+}
+
+.app-series .tags-wrapper-container {
+  margin-top: 20px;
+  width: 85%;
+}

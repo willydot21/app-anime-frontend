@@ -1,0 +1,10 @@
+
+.filters-tags {
+  padding: 5px 10px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(20, 20, 20);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .8em;
+  margin: 5px 5px;
+}

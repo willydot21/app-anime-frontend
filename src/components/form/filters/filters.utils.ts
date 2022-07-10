@@ -5,6 +5,7 @@ import { FormFiltersItems, FormFiltersItemsWithoutRef, FormFiltersItemsWithState
 const closeForm = (form:React.RefObject<HTMLFormElement>) => {
   if (form.current) {
     form.current.style.top = '100%';
+    document.body.style.overflow = 'auto';
   }
 }
 
