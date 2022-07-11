@@ -13,10 +13,11 @@ const ReleatedItem = ({item}:{item:AnimeReleated}) => {
       </div>
 
       <h5 className="releated-item-title"> {item.name} </h5>
-      <div className="releated-item-tags">
-        <span className="releated-item-tag"> {item.year} </span>
-        <span className="releated-item-tag"> {item.type} </span>
-      </div>
+      <div className="releated-item-tags">{
+        [item.year, item.type].map( tag => (
+          tag && <span className="releated-item-tag"> {tag} </span>
+        ))
+      }</div>
 
     </NavLink>
   );

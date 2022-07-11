@@ -30,7 +30,7 @@ export function showFiltersForm(form:React.RefObject<HTMLFormElement>, formTop:n
       document.body.style.overflow = 'auto';
 
     } else {
-
+      
       $this.style.top = formTop+'px';
 
       document.body.style.overflow = 'hidden';

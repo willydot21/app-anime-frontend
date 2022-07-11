@@ -4,24 +4,22 @@ import { useEffect, useState } from "react";
 import FiltersForm from "../../components/form/filters/filters";
 import FilterTags from "../../components/section/filter-tags/filter-tags";
 import SearchWrapper from "../../components/section/search-wrapper/search-wrapper";
-import { FiltersResult } from "../../services/api/api-types";
-import { filtersInitialState, handleLoadMore, handlerFindFilters, setItemInitialState } from "./series.utils";
+import { FiltersResult, Filters } from "../../services/api/api-types";
+import { handleFiltersLoadMore, handlerFindFilters, setQueryParams } from "./directory.utils";
+import { useSearchParams } from 'react-router-dom';
 
 const itemInitialState:FiltersResult = {url:'', page:0, total_pages:0, results:[]}
 
-const AppSeries = () => {
+const AppDirectory = () => {
 
-  const [ filtersForm, setFiltersForm ] = useState(filtersInitialState);
-  const [ filterItems, setFilterItems ] = useState(itemInitialState);
+  const [ searchParams ] = useSearchParams();
+  const [ filtersForm, setFiltersForm ] = useState<Filters>(setQueryParams(searchParams));
+  const [ filterItems, setFilterItems ] = useState<FiltersResult>(itemInitialState);
   const [ searching, setSearching ] = useState(false);
 
   useEffect(() => {
     handlerFindFilters(setFilterItems, [searching, setSearching], filtersForm);
   }, [filtersForm]);
-
-  useEffect(() => {
-    setItemInitialState(setFilterItems);
-  }, []);
 
   return (
     <div className="app-series" style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
@@ -33,7 +31,7 @@ const AppSeries = () => {
       <SearchWrapper 
         queryItemsState={[filterItems, setFilterItems]}
         searching={searching}
-        callbackLoadMore={() => handleLoadMore({
+        callbackLoadMore={() => handleFiltersLoadMore({
           filterItemsState:[filterItems, setFilterItems], 
           filtersForm
         })}
@@ -43,4 +41,4 @@ const AppSeries = () => {
   );
 }
 
-export default AppSeries;
+export default AppDirectory;

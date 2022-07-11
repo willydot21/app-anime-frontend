@@ -2,9 +2,9 @@ import React from "react";
 
 function setFormToDefault($this:HTMLInputElement, form:HTMLFormElement, prevTop:number) {
 
-  form.style.top = prevTop + 'px';
-
   form.classList.remove('filters-focus');
+
+  form.style.top = prevTop + 'px';
 
   document.onmousemove = null;
   // desactivate mousemove event.

@@ -16,7 +16,7 @@ export const fetchQueryItems = async (
     name: 'q', value: query
   }]);
 
-  if ((items as ApiError).message === undefined) {
+  if (!((items as ApiError).message)) {
 
     setQueryItems(items as AnimeSearch);
 
@@ -39,8 +39,11 @@ export const handlerOnKeyUp = async (
     const query = $this.current.value;
 
     timer = setTimeout( async () => {
+
       await fetchQueryItems(query, setQueryItems);
+      
       setSearching(false);
+      
     }, waitTime);
 
   }

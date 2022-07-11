@@ -4,16 +4,18 @@ import { NavLink } from 'react-router-dom';
 import SearchButton from '../../input/button/search-button/search-button';
 import SearchInput from '../../input/text/search-input/search-input';
 import { SearchSectionProps } from './search-section-types';
+import { handlerSearchClick } from '../../input/button/search-button/search-button.utils';
+import { useRef } from 'react';
 
 const SearchSection = ({
-  inputRef,
+  externalInputRef,
   setQueryItems,
   searchingState,
-  suggestionsRef,
-  handlerOnClick
+  suggestionsRef
 }:SearchSectionProps) => {
 
   const [ searching, setSearching ] = searchingState;
+  const inputRef = externalInputRef || useRef<HTMLInputElement>(null);
 
   return (
     <div className="search-section">
@@ -32,7 +34,7 @@ const SearchSection = ({
 
       <SearchButton
         handlerClick={
-          () => { handlerOnClick(inputRef, searching, setQueryItems, setSearching) }
+          () => { handlerSearchClick(inputRef, searching, setQueryItems, setSearching) }
         }
       />
       </div>

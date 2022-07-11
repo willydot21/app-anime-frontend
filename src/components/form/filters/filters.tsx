@@ -42,7 +42,7 @@ const FiltersForm = ({ externalState }:FiltersFormProps) => {
   return (
     <div className="filters-container">
       <form className="filters-form" ref={filtersFormRef}>
-
+        
         <TopButtons click={topButtonsClickAction} />
 
         <AppDropdown options={['Más recientes', 'Menos recientes']}

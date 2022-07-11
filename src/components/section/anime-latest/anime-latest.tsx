@@ -11,9 +11,9 @@ const AnimeLatest = ({latestItems}:AnimeLatestProps) => {
 
   return (
     <div className="anime-latest">
-      <LatestSection latestItems={movies} section_name="Películas" />
-      <LatestSection latestItems={ovas} section_name="Ovas" />
-      <LatestSection latestItems={specials} section_name="Especiales" />
+      <LatestSection latestItems={movies} section_name="Películas" value="movie"/>
+      <LatestSection latestItems={ovas} section_name="Ovas" value="ova"/>
+      <LatestSection latestItems={specials} section_name="Especiales" value="special"/>
     </div>
   );
 

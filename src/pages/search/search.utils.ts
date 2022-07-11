@@ -34,7 +34,7 @@ const fetchNextPage = async (previousQueryItems: AnimeSearch) => {
 
 }
 
-export const handlerLoadMore = async (
+export const handlerSearchMore = async (
   queryItems: AnimeSearch,
   setQueryItems: React.Dispatch<React.SetStateAction<AnimeSearch>>
 ) => {

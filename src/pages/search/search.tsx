@@ -1,10 +1,9 @@
 
 import './search.css';
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimeSearch } from '../../services/api/api-types';
-import { handlerLoadMore, queryItemsInitialState } from './search.utils';
+import { handlerSearchMore, queryItemsInitialState } from './search.utils';
 import SearchSection from '../../components/section/search-section/search-section';
-import { handlerClick } from '../../components/input/button/search-button/search-button.utils';
 import SearchWrapper from '../../components/section/search-wrapper/search-wrapper';
 
 const AppSearch = () => {
@@ -13,23 +12,19 @@ const AppSearch = () => {
 
   const [ queryItems, setQueryItems ] = useState<AnimeSearch>(queryItemsInitialState);
 
-  const inputRef = useRef<HTMLInputElement>(null);
-
   return (
 
     <div className="app-search">
 
       <SearchSection 
-        inputRef={inputRef}
         searchingState={[ searching, setSearching ]}
         setQueryItems={setQueryItems}
-        handlerOnClick={handlerClick}
       />
 
       <SearchWrapper 
         searching={searching} 
         queryItemsState={[queryItems, setQueryItems]} 
-        callbackLoadMore={() => handlerLoadMore(queryItems, setQueryItems)}
+        callbackLoadMore={() => handlerSearchMore(queryItems, setQueryItems)}
       />
       
     </div>

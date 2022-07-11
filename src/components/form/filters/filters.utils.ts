@@ -1,5 +1,5 @@
 
-import { filtersInitialState } from "../../../pages/series/series.utils";
+import { filtersInitialState } from "../../../pages/directory/directory.utils";
 import { FormFiltersItems, FormFiltersItemsWithoutRef, FormFiltersItemsWithStates } from "./filters-types";
 
 const closeForm = (form:React.RefObject<HTMLFormElement>) => {

@@ -1,4 +1,5 @@
-import React from "react";
+
+import { AnimeSearch, FiltersResult } from "../../../../services/api/api-types";
 
 export interface searchInputProps {
 

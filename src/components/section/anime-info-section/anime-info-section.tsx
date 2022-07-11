@@ -9,7 +9,7 @@ const AnimeInfoSection = ({item}:{item:AnimeInfo}) => {
   return (
     <div className="anime-info">
 
-      <AnimeInfoBanner banner={item.banner} />
+      <AnimeInfoBanner banner={item.banner} poster={item.poster} />
 
       <div className="anime-info-container">
         <img src={item.poster} alt='' />

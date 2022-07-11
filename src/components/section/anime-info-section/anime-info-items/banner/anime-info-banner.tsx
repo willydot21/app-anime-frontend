@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 import { handleLoadImage } from './anime-banner.utils';
 import { useEffect, useState } from 'react';
 
-const notFoundImage = 'https://www.observatoriorh.com/wp-content/uploads/2020/07/103260325_l-scaled.jpg';
+const notFoundImage = 'https://wallpapers.oceanofwallpapers.com/wallpapers/previews/wallpaper-qdojr7-866008-Preview.webp';
 
 const AnimeInfoBanner = (
-  {banner}:{banner:string}
+  {banner, poster}:{banner:string, poster:string}
 ) => {
 
-  const [ image, setImage ] = useState(notFoundImage);
+  const [ image, setImage ] = useState(poster || notFoundImage);
 
   useEffect( () => {
 

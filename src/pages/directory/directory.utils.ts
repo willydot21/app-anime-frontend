@@ -1,25 +1,29 @@
 
-import React from "react";
 import TioanimeApi from "../../services/api/api";
 import { ApiError, Filters, FiltersResult } from "../../services/api/api-types";
-import { LoadMoreParams } from "./series-types";
+import { LoadMoreParams } from "./directory-types";
 
-export const filtersInitialState:Filters = {
-  types: [],
-  genres: [],
-  years: ['1950', '2022'],
-  status: 'finished',
-  sort: 'recent',
-  page: 0
-}
+const parseQueryParams = (queryParams:URLSearchParams) => {
 
-export const setItemInitialState = async (
-  setItems:React.Dispatch<React.SetStateAction<FiltersResult>>
-) => {
+  let filters: { [query: string]: string | string[] } = {}
 
-  const items = await TioanimeApi.getByFilters([]);
+  queryParams.forEach((value, query) => {
 
-  if (!(items as ApiError).message) setItems(items as FiltersResult);
+    if (['years', 'genres', 'types'].includes(query) && !filters[query]) {
+
+      filters[query] = [];
+
+    }
+
+    (Array.isArray(filters[query])
+
+      ? (filters[query] as string[]).push(value)
+
+      : filters[query] = value);
+
+  });
+
+  return filters;
 
 }
 
@@ -92,7 +96,16 @@ const fetchNextPage = async (previousQueryItems:FiltersResult, prevFilters:Filte
 
 }
 
-export const handleLoadMore = async ({
+export const filtersInitialState:Filters = {
+  types: [],
+  genres: [],
+  years: ['1950', '2022'],
+  status: 'finished',
+  sort: 'recent',
+  page: 0
+}
+
+export const handleFiltersLoadMore = async ({
   filterItemsState,
   filtersForm
 }: LoadMoreParams) => {
@@ -132,4 +145,16 @@ export const handlerFindFilters = async(
 
   } else { console.log('loading...') }
 
+}
+
+export const setQueryParams = (
+  queryParams:URLSearchParams
+) => {
+
+  const parsedParams = parseQueryParams(queryParams);
+
+  if (Object.keys(parsedParams).length>0) return parsedParams;
+
+  return filtersInitialState;
+  
 }

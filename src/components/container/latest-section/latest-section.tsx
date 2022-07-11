@@ -4,7 +4,7 @@ import { LatestSectionProps } from "./latest-section-types";
 import LatestItem from "../latest-item/latest-item";
 import { NavLink } from 'react-router-dom';
 
-const LatestSection = ({latestItems, section_name}:LatestSectionProps) => {
+const LatestSection = ({latestItems, section_name, value}:LatestSectionProps) => {
   
   const title = (
     section_name === 'Películas'
@@ -25,7 +25,7 @@ const LatestSection = ({latestItems, section_name}:LatestSectionProps) => {
       </div>
       <NavLink 
         className="latest-section-link"
-        to={`filters?type=${section_name.slice(section_name.length)}`} 
+        to={`directory?years=1950&years=2022&status=finished&sort=recent${value?`&types=${value}`:'' }`} 
       >
         {`Más ${section_name}`}
       </NavLink>

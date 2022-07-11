@@ -1,6 +1,14 @@
 
 var prevCursorY=0;
 
+function canSetDrag (form:HTMLFormElement) {
+
+  const modals = form.querySelectorAll('.modal.fade.show');
+
+  return !(modals.length > 0) && !form.classList.contains('filters-focus');
+
+}
+
 function setElementCursor(clientY:number, form:HTMLFormElement) {
   form.style.top = (form.offsetTop - clientY) + 'px';
 }
@@ -17,43 +25,47 @@ function dragMouseOut(ev:MouseEvent, form:HTMLFormElement, originalTop:number) {
 
 function dragStartTouch(e:TouchEvent, form:HTMLFormElement, originalTop:number) {
 
-  e = e || window.event;
+  if (canSetDrag(form)) {
 
-  prevCursorY = e.touches[0].clientY;
+    e = e || window.event;
 
-  form.style.transitionDuration = 'unset';
+    prevCursorY = e.touches[0].clientY;
 
-  document.ontouchmove = (ev) => dragElement(ev.touches[0].clientY, form);
-  form.ontouchend = () => dragStop(form, originalTop);
+    form.style.transitionDuration = 'unset';
+
+    document.ontouchmove = (ev) => dragElement(ev.touches[0].clientY, form);
+    form.ontouchend = () => dragStop(form, originalTop);
+  
+  }
 
 }
 
 function dragStartMouse(e:MouseEvent, form:HTMLFormElement, originalTop:number) {
 
-  e = e || window.event;
+  if (canSetDrag(form)) {
 
-  prevCursorY = e.clientY;
+    e = e || window.event;
 
-  form.style.transitionDuration = 'unset';
+    prevCursorY = e.clientY;
 
-  document.onmousemove = (ev) => dragElement(ev.clientY, form);
-  form.onmouseup = () => dragStop(form, originalTop);
-  document.onmouseleave = () => dragStop(form, originalTop);
-  document.onmouseout = (ev) => dragMouseOut(ev, form, originalTop)
+    form.style.transitionDuration = 'unset';
+
+    document.onmousemove = (ev) => dragElement(ev.clientY, form);
+    form.onmouseup = () => dragStop(form, originalTop);
+    document.onmouseleave = () => dragStop(form, originalTop);
+    document.onmouseout = (ev) => dragMouseOut(ev, form, originalTop);
+
+  }
 
 }
 
 function dragElement(evClientY:number, form:HTMLFormElement) {
 
-  if (!form.classList.contains('filters-focus')) {
+  const clientY = prevCursorY - evClientY;
 
-    const clientY = prevCursorY - evClientY;
+  prevCursorY = evClientY;
 
-    prevCursorY = evClientY;
-
-    setElementCursor(clientY, form);
-  
-  }
+  setElementCursor(clientY, form);
 
 }
 

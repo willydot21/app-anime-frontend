@@ -6,17 +6,11 @@ import {AnimeOtherInfoProps} from './anime-other-info-types';
 const AnimeOtherInfo = ({season, type, year, status}: AnimeOtherInfoProps) => {
 
   return (
-    <TagsWrapper>
-      {
-        [season, type, year, status].map( item => {
-          return (
-            item
-            ? <li className="anime-other-info"> {item}</li>
-            : <></>
-          );
-        })
-      }
-    </TagsWrapper>
+    <TagsWrapper>{
+      [season, type, year, status].map(item => (
+        item && <li className="anime-other-info"> {item}</li>
+      ))
+    }</TagsWrapper>
   );
 
 }

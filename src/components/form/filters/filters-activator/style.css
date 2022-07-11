@@ -17,12 +17,23 @@
   letter-spacing: 2px;
   font-weight: 600;
   overflow: hidden;
+  transition: all .2s;
 }
 
 .activator-text {
   opacity: 0%;
   transition: .2s;
   width: 0;
+}
+
+.filters-activator:hover .activator-text {
+  opacity: 100%;
+  width: auto;
+  margin: 0px 10px;
+}
+
+.filters-activator:active {
+  background-color: rgb(218, 178, 0);
 }
 
 .activator-text-active {

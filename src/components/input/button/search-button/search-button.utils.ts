@@ -1,9 +1,9 @@
 
 import React from "react";
-import { AnimeSearch } from "../../../../services/api/api-types";
+import { AnimeSearch, FiltersResult } from "../../../../services/api/api-types";
 import { fetchQueryItems } from "../../text/search-input/search-input.utils";
 
-export const handlerClick = async (
+export const handlerSearchClick = async (
   query: React.RefObject<HTMLInputElement>,
   searching: boolean,
   setQueryItems: React.Dispatch<React.SetStateAction<AnimeSearch>>,

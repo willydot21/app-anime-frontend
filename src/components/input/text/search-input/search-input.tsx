@@ -5,7 +5,7 @@ import { handlerOnFocus, handlerOnKeyUp } from './search-input.utils';
 
 const SearchInput = ({ searchingState, setQueryItems, suggestionsRef, inputRef }: searchInputProps ) => {
 
-  const [ searching, setSearching ] = searchingState;
+  const [ _searching, setSearching ] = searchingState;
 
   const fetchQuery = async () => {
     setSearching(true);
