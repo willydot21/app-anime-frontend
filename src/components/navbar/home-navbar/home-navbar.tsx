@@ -9,10 +9,10 @@ const HomeNavbar = ({navbarRef}:{navbarRef:React.MutableRefObject<null>}) => {
     <div className="home-navbar" ref={navbarRef} >
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbm482dmjDlh84YeqKuNGYrcpPhb4320pwV6WyNRAIJS-v8M1ZEGdrzo17ZgGDpH0YpHo&usqp=CAU" className="home-navbar-icon"/>
       <div className="home-navbar-links">
-        <NavLink to="/directory?type=tv">
+        <NavLink to="/directory?types=tv&years=1950&years=2022&status=finished&sort=recent">
           Series
         </NavLink>
-        <NavLink to="/directory?type=movie"> 
+        <NavLink to="/directory?types=movie&years=1950&years=2022&status=finished&sort=recent"> 
           Peliculas
         </NavLink>
       </div>

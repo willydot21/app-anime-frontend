@@ -49,5 +49,5 @@ export interface FormFiltersItemsWithStates extends FormFiltersItemsWithoutRef {
 }
 
 export interface FiltersFormProps {
-  externalState: [Filters, React.Dispatch<React.SetStateAction<Filters>>]
+  externalSetForm: React.Dispatch<React.SetStateAction<Filters>>;
 }

@@ -9,7 +9,7 @@ export const parseSpanishNames: {[name:string]:string} = {
   '-recent': 'Menos recientes',
   'recent': 'Más recientes',
   'tv': 'Tv',
-  'movie': 'Movie',
+  'movie': 'Película',
   'special': 'Especial',
   'ova': 'Ova'
 }

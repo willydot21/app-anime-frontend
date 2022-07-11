@@ -18,6 +18,7 @@ const FilterTags = ({filters}:{filters:Filters}) => {
       }
     </TagsWrapper>
   );
+  
 }
 
 export default FilterTags;

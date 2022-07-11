@@ -2,10 +2,11 @@
 import { AnimeSearch, ApiError } from "../../../../services/api/api-types";
 import TioanimeApi from "../../../../services/api/api";
 import React from "react";
+import { queryItemsInitialState } from "../../../../pages/search/search.utils";
 
 let timer: NodeJS.Timeout;
 
-const waitTime = 100;
+const waitTime = 300;
 
 export const fetchQueryItems = async ( 
   query: string,
@@ -20,7 +21,7 @@ export const fetchQueryItems = async (
 
     setQueryItems(items as AnimeSearch);
 
-  } else { console.log(items); }
+  } else { console.log('aaaaaaaaaaaaaaaaaaa'); setQueryItems(queryItemsInitialState); }
 
 }
 

@@ -4,7 +4,7 @@ import './no-elements.css';
 const NoElements = () => {
   return (
     <div className="no-elements">
-      Sin resultados.
+      Sin resultados...
     </div>
   )
 }

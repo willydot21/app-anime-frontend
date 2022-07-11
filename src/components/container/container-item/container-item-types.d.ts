@@ -9,4 +9,5 @@ export interface ContainerItemInterface {
 export interface ContainerItemProps {
   item: ContainerItemInterface;
   link: string;
+  index?: number;
 }

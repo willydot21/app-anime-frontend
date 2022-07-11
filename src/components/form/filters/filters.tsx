@@ -13,9 +13,8 @@ import { setupDraggableForm } from './filters.drag';
 import { setupOnFocus } from './filters.input';
 import FiltersActivator from './filters-activator/filters-activator';
 
-const FiltersForm = ({ externalState }:FiltersFormProps) => {
+const FiltersForm = ({ externalSetForm }:FiltersFormProps) => {
 
-  const [ _filtersForm, setFiltersForm ] = externalState;
   const [ status, setStatus ] = useState('Finalizado');
   const [ sort, setSort ] = useState('Más recientes');
   const [ filtersTop, setFiltersTop ] = useState(0);
@@ -35,7 +34,7 @@ const FiltersForm = ({ externalState }:FiltersFormProps) => {
 
   const topButtonsClickAction = (type:string) => formFiltersAction({ 
     states:{sort, status},
-    setStates:{setStatus, setSort, setFiltersForm}, 
+    setStates:{setStatus, setSort, setFiltersForm:externalSetForm}, 
     refs:{checkboxCategory, checkboxTypes, inputEndYear, inputStartYear, filtersForm:filtersFormRef} 
   }, type);
 

@@ -2,6 +2,7 @@
 import './style.css';
 import { searchInputProps } from './search-input-types';
 import { handlerOnFocus, handlerOnKeyUp } from './search-input.utils';
+import { queryItemsInitialState } from '../../../../pages/search/search.utils';
 
 const SearchInput = ({ searchingState, setQueryItems, suggestionsRef, inputRef }: searchInputProps ) => {
 
@@ -10,6 +11,7 @@ const SearchInput = ({ searchingState, setQueryItems, suggestionsRef, inputRef }
   const fetchQuery = async () => {
     setSearching(true);
     handlerOnKeyUp( inputRef, setQueryItems, setSearching );
+    setQueryItems((prev) => { return {...prev, anime_results:[]} });
   }
 
   return ( 

@@ -17,8 +17,16 @@ const AppDirectory = () => {
   const [ filterItems, setFilterItems ] = useState<FiltersResult>(itemInitialState);
   const [ searching, setSearching ] = useState(false);
 
+  const handleFindFilters = () => handlerFindFilters(setFilterItems, [searching, setSearching], filtersForm);
+
   useEffect(() => {
-    handlerFindFilters(setFilterItems, [searching, setSearching], filtersForm);
+
+    setFilterItems(itemInitialState);
+    
+    handleFindFilters();
+
+    //setFilterItems(itemInitialState);
+
   }, [filtersForm]);
 
   return (
@@ -26,11 +34,10 @@ const AppDirectory = () => {
 
       <FilterTags filters={filtersForm}/>
 
-      <FiltersForm externalState={[filtersForm, setFiltersForm]} />
+      <FiltersForm externalSetForm={setFiltersForm} />
 
       <SearchWrapper 
         queryItemsState={[filterItems, setFilterItems]}
-        searching={searching}
         callbackLoadMore={() => handleFiltersLoadMore({
           filterItemsState:[filterItems, setFilterItems], 
           filtersForm
