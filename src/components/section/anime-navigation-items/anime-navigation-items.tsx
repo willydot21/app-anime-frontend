@@ -3,7 +3,7 @@ import ReleatedAnimes from "../anime-releated/releated-animes";
 import AnimeEpisodes from "../anime-episodes/anime-episodes";
 import { AnimeInfo } from "../../../services/api/api-types";
 
-const AnimeNavigationItems = ({ animeInfo }:{animeInfo:AnimeInfo }) => {
+const AnimeNavigationItems = ({ animeInfo }:{ animeInfo:AnimeInfo }) => {
 
   return ({
 

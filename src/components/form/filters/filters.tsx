@@ -18,6 +18,7 @@ const FiltersForm = ({ externalSetForm }:FiltersFormProps) => {
   const [ status, setStatus ] = useState('Finalizado');
   const [ sort, setSort ] = useState('Más recientes');
   const [ filtersTop, setFiltersTop ] = useState(0);
+  const [ active, setActive ] = useState(false);
 
   const checkboxCategory = useRef<HTMLDivElement>(null);
   const checkboxTypes = useRef<HTMLDivElement>(null);
@@ -28,13 +29,13 @@ const FiltersForm = ({ externalSetForm }:FiltersFormProps) => {
   useEffect(() => {
     if (filtersFormRef.current) {
       setFiltersTop(filtersFormRef.current.offsetTop);
-      setupDraggableForm(filtersFormRef.current, filtersFormRef.current.offsetTop);
+      setupDraggableForm(filtersFormRef.current, filtersFormRef.current.offsetTop, setActive);
     }
   }, []);
 
   const topButtonsClickAction = (type:string) => formFiltersAction({ 
     states:{sort, status},
-    setStates:{setStatus, setSort, setFiltersForm:externalSetForm}, 
+    setStates:{setStatus, setSort, setFiltersForm:externalSetForm, setActive}, 
     refs:{checkboxCategory, checkboxTypes, inputEndYear, inputStartYear, filtersForm:filtersFormRef} 
   }, type);
 
@@ -68,7 +69,7 @@ const FiltersForm = ({ externalSetForm }:FiltersFormProps) => {
 
       </form>
 
-      <FiltersActivator form={filtersFormRef} formTop={filtersTop} />
+      <FiltersActivator form={filtersFormRef} formTop={filtersTop} formActiveState={[active, setActive]} />
 
     </div>
   );

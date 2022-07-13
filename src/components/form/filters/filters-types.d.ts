@@ -15,6 +15,7 @@ export interface FormFiltersItems {
     setStatus: React.Dispatch<React.SetStateAction<string>>;
     setSort: React.Dispatch<React.SetStateAction<string>>;
     setFiltersForm: React.Dispatch<React.SetStateAction<Filters>>;
+    setActive: React.Dispatch<React.SetStateAction<boolean>>;
   } 
 
   states: {

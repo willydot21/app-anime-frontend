@@ -74,8 +74,6 @@ export const setupOnChange = (
 
 export const setActiveSection = (containerRef:React.RefObject<HTMLDivElement>, activeSection:string) => {
 
-  console.log('hola!!!');
-
   if (containerRef.current) {
 
     const container = containerRef.current;

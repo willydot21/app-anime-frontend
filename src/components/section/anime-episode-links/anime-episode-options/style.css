@@ -1,0 +1,26 @@
+
+.episode-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0px;
+  padding: 20px 0px;
+  text-align: left;
+  background-color: rgb(20, 20, 20);
+  border: unset;
+  color: rgb(156, 154, 154);
+  padding-left: 10px;
+}
+
+.episode-option span { margin-right: 5px;}
+
+@media (pointer:fine) {
+  .episode-option:hover {
+    background-color: rgb(30, 30, 30);
+  }
+}
+
+.episode-option:active {
+  background-color: rgb(40, 40, 40);
+}

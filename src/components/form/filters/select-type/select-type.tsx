@@ -1,7 +1,7 @@
 
 import { animeTypes } from "../../../../services/api/api.utils";
 import CheckboxContainer from "../../../container/checkbox-container/checkbox-container";
-import SelectModal from "../select-modal/select-modal";
+import SelectModal from "../../select-modal/select-modal";
 
 const SelectType = ({ checkboxContainer }:{ 
   checkboxContainer:React.RefObject<HTMLDivElement>

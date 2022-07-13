@@ -4,11 +4,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all .2s;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-.anime-episode-right img {
-  width: 25vw;
-  height: 12vw;
+.anime-episode-left {
+  width: 85%;
+}
+
+.anime-episode-left img {
+  width: 25%;
+  height: 12%;
   max-width: 220px;
   max-height: 100px;
   margin-right: 10px;
@@ -16,8 +23,34 @@
   object-position: center;
 }
 
+.anime-episode .episode-btn {
+  margin-right: 10px;
+  transition: all .2s;
+  color: rgb(50, 50, 50);
+  background-color: black;
+  border: 1px;
+  border-radius: 50%;
+  padding: 1%;
+}
+
+.anime-episode .episode-btn:active {
+  background-color: rgb(40, 40, 40);
+  color: rgb(65, 65, 65)
+}
+
+.anime-episode.watched {
+  color: rgb(255, 49, 49);
+}
+
+.anime-episode.watched .watch-icon {
+  color: rgb(255, 49, 49);
+}
+
 @media (pointer:fine) {
   .anime-episode:hover {
-    background-color: rgb(10, 10, 10);
+    cursor: pointer;
+  }
+  .anime-episode .episode-btn:hover {
+    background-color: rgb(20, 20, 20);
   }
 }

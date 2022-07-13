@@ -12,25 +12,25 @@
   border: unset;
   margin-bottom: 5%;
   margin-right: 4%;
-  padding: 2%;
+  padding: 1.5% 2%;
   border-radius: 30px;
   letter-spacing: 2px;
   font-weight: 600;
   overflow: hidden;
-  transition: all .2s;
+  transition: all .3s;
   z-index: 2000;
 }
 
-.activator-text {
+.filters-activator.active {
+  transform: scale(.5);
   opacity: 0%;
-  transition: .2s;
-  width: 0;
 }
 
-.filters-activator:hover .activator-text {
+.activator-text {
   opacity: 100%;
   width: auto;
   margin: 0px 10px;
+  transition: all .2s;
 }
 
 .filters-activator:active {
@@ -38,14 +38,15 @@
 }
 
 .activator-text-active {
-  opacity: 100%;
-  width: auto;
-  margin: 0px 10px;
+  padding: 0px;
+  margin: 0px;
+  opacity: 0%;
+  width: 0;
 }
 
 @media (width > 800px) {
   .filters-activator {
-    padding: 15px;
+    padding: 12px;
     margin-bottom: 50px;
   }
 }
@@ -53,12 +54,5 @@
 @media (width > 1570px) {
   .filters-activator {
     z-index: 4000;
-    display: none;
-  }
-}
-
-@media (width > 1740px) {
-  .filters-activator {
-    display: flex;
   }
 }

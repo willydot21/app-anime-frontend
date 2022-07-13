@@ -11,21 +11,16 @@ import { useSearchParams } from 'react-router-dom';
 const itemInitialState:FiltersResult = {url:'', page:0, total_pages:0, results:[]}
 
 const AppDirectory = () => {
-
+  
   const [ searchParams ] = useSearchParams();
   const [ filtersForm, setFiltersForm ] = useState<Filters>(setQueryParams(searchParams));
   const [ filterItems, setFilterItems ] = useState<FiltersResult>(itemInitialState);
-  const [ searching, setSearching ] = useState(false);
-
-  const handleFindFilters = () => handlerFindFilters(setFilterItems, [searching, setSearching], filtersForm);
 
   useEffect(() => {
 
     setFilterItems(itemInitialState);
     
-    handleFindFilters();
-
-    //setFilterItems(itemInitialState);
+    handlerFindFilters(setFilterItems, filtersForm);
 
   }, [filtersForm]);
 

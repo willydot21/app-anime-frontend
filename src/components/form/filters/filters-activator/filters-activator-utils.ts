@@ -17,7 +17,11 @@ function handleScroll(activatorText:HTMLParagraphElement) {
 
 }
 
-export function showFiltersForm(form:React.RefObject<HTMLFormElement>, formTop:number) {
+export function showFiltersForm(
+  form:React.RefObject<HTMLFormElement>, 
+  formTop:number,
+  setActive:React.Dispatch<React.SetStateAction<boolean>>
+) {
 
   if (form.current) {
 
@@ -29,11 +33,15 @@ export function showFiltersForm(form:React.RefObject<HTMLFormElement>, formTop:n
 
       document.body.style.overflow = 'auto';
 
+      setActive(false);
+
     } else {
       
       $this.style.top = formTop+'px';
 
       document.body.style.overflow = 'hidden';
+
+      setActive(true);
     
     }
 

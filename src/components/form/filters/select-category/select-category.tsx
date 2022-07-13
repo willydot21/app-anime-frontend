@@ -1,6 +1,6 @@
 
 import { animeCategories } from "../../../../services/api/api.utils";
-import SelectModal from "../select-modal/select-modal";
+import SelectModal from "../../select-modal/select-modal";
 import CheckboxContainer from "../../../container/checkbox-container/checkbox-container";
 import React from "react";
 

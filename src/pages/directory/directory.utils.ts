@@ -90,19 +90,9 @@ const fetchNextPage = async (previousQueryItems:FiltersResult, prevFilters:Filte
     } // if page exists.
 
   }
-  
 
   return null;
 
-}
-
-export const filtersInitialState:Filters = {
-  types: [],
-  genres: [],
-  years: ['1950', '2022'],
-  status: 'finished',
-  sort: 'recent',
-  page: 0
 }
 
 export const handleFiltersLoadMore = async ({
@@ -125,25 +115,14 @@ export const handleFiltersLoadMore = async ({
 
 export const handlerFindFilters = async(
   setItems: React.Dispatch<React.SetStateAction<FiltersResult>>,
-  searchingState: [boolean, React.Dispatch<React.SetStateAction<boolean>>],
   filters: Filters
 ) => {
 
-  const [searching, setSearching] = searchingState;
+  const newItems = await TioanimeApi.getByFilters(
+    getFilterQueries(filters)
+  );
 
-  if (!searching) {
-
-    setSearching(true);
-
-    const newItems = await TioanimeApi.getByFilters(
-      getFilterQueries(filters)
-    );
-  
-    if (!(newItems as ApiError).message) setItems(newItems as FiltersResult);
-
-    setSearching(false);
-
-  } else { console.log('loading...') }
+  if (!(newItems as ApiError).message) setItems(newItems as FiltersResult);
 
 }
 
@@ -157,4 +136,13 @@ export const setQueryParams = (
 
   return filtersInitialState;
   
+}
+
+export const filtersInitialState:Filters = {
+  types: [],
+  genres: [],
+  years: ['1950', '2022'],
+  status: 'finished',
+  sort: 'recent',
+  page: 0
 }

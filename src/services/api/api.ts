@@ -61,11 +61,7 @@ class TioanimeApi {
   }
 
   public static async getAnimeChapter(id:string, chapter:string|number): Promise<ApiError | AnimeLinks> {
-    return (
-      await this.fetchItems(
-        apiRoutes.chapter(id, chapter)
-      )
-    );
+    return await this.fetchItems( apiRoutes.chapter(id, chapter) );
   }
 
   public static async getCategory(category:string, queryParams:QueryParamsObject[]): Promise<ApiError | FiltersResult> {

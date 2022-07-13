@@ -1,29 +1,28 @@
 
-import './anime-episode.css'
-import { NavLink } from 'react-router-dom';
+import './anime-episode.css';
+import { useState } from 'react';
 import { AnimeEpisodeProps } from "./anime-episode-types";
+import ActivatorEpisodeOptions from '../../../input/button/open-episode-options';
 
 const handleImageError = (img:HTMLImageElement, alt:string) => {
   img.src=alt;
 }
 
-const AnimeEpisode = ({item}:{item:AnimeEpisodeProps}) => {
+const AnimeEpisode = ({ item, handlerSetServerEpisode }:{ 
+  item:AnimeEpisodeProps, 
+  handlerSetServerEpisode:(episode:number) => void }
+) => {
 
-  const {
-    id,
-    episode,
-    poster,
-    name,
-    animePoster
-  } = item;
+  const [ watched, setWatched ] = useState(false);
+
+  const $className = `anime-episode ${watched?'watched':''}`
+
+  const { id, episode, poster, name, animePoster } = item;
 
   return (
-    <NavLink
-      to={`anime/${id}/episode/${episode}`}
-      className="anime-episode"
-    >
+    <div className={$className}>
 
-      <div className="anime-episode-right"> 
+      <div className="anime-episode-left" onClick={() => setWatched(!watched)}> 
         <img src={poster} alt={ name + ' image' }
           onError={ 
             (e) => { handleImageError((e.target as HTMLImageElement),animePoster); }
@@ -32,9 +31,13 @@ const AnimeEpisode = ({item}:{item:AnimeEpisodeProps}) => {
         <span className="anime-episode-chapter"> Episodio {episode} </span>
       </div>
 
-      <span className="material-icons"> more_vert </span>
+      <button className="material-icons watch-icon episode-btn" onClick={() => setWatched(!watched)}>
+        {watched? 'visibility':'visibility_off' }
+      </button>
+
+      <ActivatorEpisodeOptions handleClick={ () => handlerSetServerEpisode(episode) } />
       
-    </NavLink>
+    </div>
   );
 
 }

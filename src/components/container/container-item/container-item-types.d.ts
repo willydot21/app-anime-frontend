@@ -11,3 +11,8 @@ export interface ContainerItemProps {
   link: string;
   index?: number;
 }
+
+export interface ItemProperties {
+  src: string;
+  title: string;
+}

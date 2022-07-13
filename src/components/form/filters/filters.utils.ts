@@ -1,11 +1,16 @@
 
+import React from "react";
 import { filtersInitialState } from "../../../pages/directory/directory.utils";
 import { FormFiltersItems, FormFiltersItemsWithoutRef, FormFiltersItemsWithStates } from "./filters-types";
 
-const closeForm = (form:React.RefObject<HTMLFormElement>) => {
+const closeForm = (
+  form:React.RefObject<HTMLFormElement>,
+  setActive:React.Dispatch<React.SetStateAction<boolean>>
+) => {
   if (form.current) {
     form.current.style.top = '100%';
     document.body.style.overflow = 'auto';
+    setActive(false);
   }
 }
 
@@ -199,7 +204,7 @@ export const formFiltersAction = (filterItems:FormFiltersItems, action:string) =
 
     } // end switch
 
-    closeForm(filtersForm);
+    closeForm(filtersForm, filterItems.setStates.setActive);
   
   } // end if
 

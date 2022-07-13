@@ -25,7 +25,7 @@ export const apiRoutes = {
 
   anime: (id:string) => `anime/${id}`,
 
-  chapter: (id:string, chapter:string|number) => `anime/${id}/${chapter}`,
+  chapter: (id:string, chapter:string|number) => `anime/${id}/chapter/${chapter}`,
 
   search: (queryParams:QueryParamsObject[]) => setQueryParams('search', queryParams),
 

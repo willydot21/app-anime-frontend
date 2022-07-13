@@ -1,6 +1,9 @@
+import React from "react";
 
-import { AnimeEpisodesProps } from "../anime-episodes-types"
-
-export interface AnimeEpisodeProps extends AnimeEpisodesProps  {
+export interface AnimeEpisodeProps {
+  poster: string;
   episode: number;
+  id: string;
+  name: string;
+  animePoster: string;
 }
