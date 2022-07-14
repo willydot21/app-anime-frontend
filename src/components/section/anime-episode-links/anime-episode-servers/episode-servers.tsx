@@ -3,7 +3,8 @@ import './style.css';
 import React, { useEffect, useState } from "react";
 import SelectModal from "../../../form/select-modal/select-modal";
 import { AnimeLinks } from "../../../../services/api/api-types";
-import { getAnimeLinks } from "./episode-options-utils";
+import { getAnimeLinks, MapAnimeLinks } from "./episode-servers.utils";
+import AppLoading from '../../../others/loading';
 
 const serverLinksIS:AnimeLinks = {
   id: '', chapter:0,
@@ -12,29 +13,27 @@ const serverLinksIS:AnimeLinks = {
   }
 }
 
-const EpisodeOptionsModal = ({ setSelectedServer, serverEpisode }:{ 
+const EpisodeServersModal = ({ setSelectedServer, serverEpisode }:{ 
   setSelectedServer:React.Dispatch<React.SetStateAction<string>>
   serverEpisode:{id:string, episode:number}
 }) => {
 
   const [ serverLinks, setServerLinks ] = useState<AnimeLinks>(serverLinksIS);
+  const [ loading, setLoading ] = useState(false);
 
   useEffect( () => {
     
-    if (serverEpisode.id.length) getAnimeLinks(serverEpisode, setServerLinks);
+    if (serverEpisode.id.length) getAnimeLinks(serverEpisode, setServerLinks, setLoading);
 
   }, [serverEpisode]);
 
   return (
-    <SelectModal id="episode-options-modal" title="Opciones">
-      <button className="episode-option">Ver 
-        <span className="material-icons"> chevron_right </span> 
-      </button>
-      <button className="episode-option">Descargar
-        <span className="material-icons"> chevron_right </span> 
-      </button>
-    </SelectModal>
+    <SelectModal id="episode-servers-modal" title="Servidores">{
+      loading
+      ? <AppLoading />
+      : <ul className="episode-servers"> {MapAnimeLinks(serverLinks)} </ul>
+    }</SelectModal>
   );
 }
 
-export default EpisodeOptionsModal;
+export default EpisodeServersModal;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AnimeEpisode from "./anime-episode/anime-episode";
 import { AnimeEpisodesProps } from "./anime-episodes-types";
 import { handlerSetServerEpisode } from './anime-episodes.utils';
-import EpisodeOptionsModal from '../anime-episode-links/anime-episode-options/episode-options';
+import EpisodeOptionsModal from '../anime-episode-links/anime-episode-servers/episode-servers';
 
 const AnimeEpisodes = ({item, name}:{item:AnimeEpisodesProps, name:string}) => {
 

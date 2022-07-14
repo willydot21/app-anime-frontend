@@ -1,0 +1,46 @@
+
+.episode-servers {
+  max-height: 50vh;
+  overflow: auto;
+  padding-left: 0px;
+}
+
+.episode-server {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0px;
+  padding: 15px 10px;
+  text-align: left;
+  background-color: rgb(20, 20, 20);
+  border: unset;
+  color: rgb(156, 154, 154);
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all .2s;
+}
+
+.episode-server img{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.episode-server i {
+  color: rgb(72, 72, 72);
+  font-size: 1.9em;
+}
+
+@media (pointer:fine) {
+  .episode-server:hover {
+    cursor: pointer;
+    background-color: rgb(30, 30, 30);
+  }
+}
+
+.episode-server:active {
+  background-color: rgb(40, 40, 40);
+}

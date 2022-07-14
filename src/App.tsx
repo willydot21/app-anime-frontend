@@ -10,6 +10,7 @@ import AppProgramming from './pages/programming/programming';
 import AppSearch from './pages/search/search';
 import { useEffect } from 'react';
 import AppDirectory from './pages/directory/directory';
+import { removeFuckModals } from './app.utils';
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
 
     if (document.body.style.overflow === 'hidden') document.body.style.overflow = 'auto';
     // set body scroll if was changed previously.
+
+    removeFuckModals();
 
   },[location.pathname]);
 

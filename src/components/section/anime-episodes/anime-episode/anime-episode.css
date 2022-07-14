@@ -10,17 +10,37 @@
 }
 
 .anime-episode-left {
-  width: 85%;
+  position: relative;
+  width: 100%;
 }
 
 .anime-episode-left img {
-  width: 25%;
-  height: 12%;
+  width: 30%;
+  height: 12vw;
   max-width: 220px;
   max-height: 100px;
   margin-right: 10px;
   object-fit: cover;
   object-position: center;
+}
+
+.anime-episode-left .play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(10, 10, 10, 0.6);
+  width: 30%;
+  height: 100%;
+  font-size: 2em;
+  max-width: 220px;
+  max-height: 100px;
+  transition: all .2s;
+  border: 1px;
+  color: white;
 }
 
 .anime-episode .episode-btn {
@@ -31,6 +51,7 @@
   border: 1px;
   border-radius: 50%;
   padding: 1%;
+  font-size: 1.8em;
 }
 
 .anime-episode .episode-btn:active {
@@ -53,4 +74,9 @@
   .anime-episode .episode-btn:hover {
     background-color: rgb(20, 20, 20);
   }
+}
+
+.anime-episode-left .play:active {
+  font-size: 3em;
+  border: 1px solid white;
 }
