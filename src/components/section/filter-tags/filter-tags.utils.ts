@@ -1,6 +1,6 @@
 
-import { Filters } from "../../../services/api/api-types";
-import { animeCategories } from "../../../services/api/api.utils";
+import { Filters } from "../../../services/api/tioanime/api-types";
+import { animeCategories } from "../../../services/api/tioanime/api.utils";
 
 export const parseSpanishNames: {[name:string]:string} = {
   'broadcast': 'En emisión',

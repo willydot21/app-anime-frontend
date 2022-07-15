@@ -1,5 +1,5 @@
 
-import { SectionItem } from "../../../services/api/api-types";
+import { SectionItem } from "../../../services/api/tioanime/api-types";
 
 export interface LatestSectionProps {
   latestItems: SectionItem[];

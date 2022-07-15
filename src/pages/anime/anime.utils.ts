@@ -1,6 +1,6 @@
 
-import TioanimeApi from "../../services/api/api";
-import { AnimeInfo, ApiError } from "../../services/api/api-types";
+import TioanimeApi from "../../services/api/tioanime/api";
+import { AnimeInfo, ApiError } from "../../services/api/tioanime/api-types";
 
 export const initialState: AnimeInfo = {
   name: '',

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArticleItem } from '../../../services/api/api-types';
+import { ArticleItem } from '../../../services/api/tioanime/api-types';
 import './style.css';
 
 const InputSuggestions = (

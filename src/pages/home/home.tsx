@@ -7,7 +7,7 @@ import { changeNavbarBg } from "../../components/navbar/home-navbar/home-navbar.
 import AnimeLatest from "../../components/section/anime-latest/anime-latest";
 import AnimeScrollEpisodes from "../../components/section/anime-scroll-episodes/anime-scroll-episodes";
 import ScrollAnimeSection from "../../components/section/anime-scroll-section/anime-scroll-section";
-import { AnimeAllLatest} from "../../services/api/api-types";
+import { AnimeAllLatest} from "../../services/api/tioanime/api-types";
 import { fetchLatest } from "./home.utils";
 import { latestInitialState } from "./home.utils";
 

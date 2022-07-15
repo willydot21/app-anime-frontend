@@ -1,5 +1,5 @@
 
-import { AnimeAllLatest } from "../../../services/api/api-types";
+import { AnimeAllLatest } from "../../../services/api/tioanime/api-types";
 
 export interface AnimeLatestProps {
   latestItems: AnimeAllLatest;

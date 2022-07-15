@@ -1,5 +1,5 @@
 
-import { Filters } from "../../../services/api/api-types"
+import { Filters } from "../../../services/api/tioanime/api-types"
 
 export interface FormFiltersItems {
 

@@ -1,6 +1,6 @@
 
 import './style.css';
-import { Filters } from "../../../services/api/api-types";
+import { Filters } from "../../../services/api/tioanime/api-types";
 import TagsWrapper from "../../container/tags-wrap/tags-wrapper"
 import { getValidTags, parseSpanishNames } from "./filter-tags.utils";
 

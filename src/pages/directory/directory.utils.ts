@@ -1,6 +1,6 @@
 
-import TioanimeApi from "../../services/api/api";
-import { ApiError, Filters, FiltersResult } from "../../services/api/api-types";
+import TioanimeApi from "../../services/api/tioanime/api";
+import { ApiError, Filters, FiltersResult } from "../../services/api/tioanime/api-types";
 import { LoadMoreParams } from "./directory-types";
 
 const parseQueryParams = (queryParams:URLSearchParams) => {

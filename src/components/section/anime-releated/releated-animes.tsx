@@ -1,6 +1,6 @@
 
 import './releated-animes.css';
-import { AnimeReleated } from "../../../services/api/api-types";
+import { AnimeReleated } from "../../../services/api/tioanime/api-types";
 import ReleatedItem from "../../container/releated-item/releated-item";
 import NoElements from '../no-elements/no-elements';
 

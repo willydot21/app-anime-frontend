@@ -1,7 +1,7 @@
 
 import React from "react";
 import { queryItemsInitialState } from "../../../../pages/search/search.utils";
-import { AnimeSearch } from "../../../../services/api/api-types";
+import { AnimeSearch } from "../../../../services/api/tioanime/api-types";
 import { fetchQueryItems } from "../../text/search-input/search-input.utils";
 
 export const handlerSearchClick = async (

@@ -1,7 +1,7 @@
 
-import { AnimeAllLatest, ApiError } from "../../services/api/api-types";
+import { AnimeAllLatest, ApiError } from "../../services/api/tioanime/api-types";
 import React from "react";
-import TioanimeApi from "../../services/api/api";
+import TioanimeApi from "../../services/api/tioanime/api";
 
 const latestInitialState: AnimeAllLatest = {
   movies: [],

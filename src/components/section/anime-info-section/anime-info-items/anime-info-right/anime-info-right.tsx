@@ -1,6 +1,6 @@
 
 import './anime-info-right.css';
-import { AnimeInfo } from "../../../../../services/api/api-types";
+import { AnimeInfo } from "../../../../../services/api/tioanime/api-types";
 import AnimeOtherInfo from "../other-info/anime-other-info";
 import AnimeInfoGenres from "../genres/anime-info-genres";
 

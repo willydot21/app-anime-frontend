@@ -1,6 +1,6 @@
 
-import TioanimeApi from "../../services/api/api";
-import { AnimeSearch, ApiError } from "../../services/api/api-types";
+import TioanimeApi from "../../services/api/tioanime/api";
+import { AnimeSearch, ApiError } from "../../services/api/tioanime/api-types";
 
 export const queryItemsInitialState = {
   query: '',

@@ -1,7 +1,7 @@
 
 import './releated-item.css';
 import { NavLink } from "react-router-dom";
-import { AnimeReleated } from "../../../services/api/api-types";
+import { AnimeReleated } from "../../../services/api/tioanime/api-types";
 
 const ReleatedItem = ({item}:{item:AnimeReleated}) => {
 

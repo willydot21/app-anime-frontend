@@ -1,5 +1,5 @@
 
-import { animeTypes } from "../../../../services/api/api.utils";
+import { animeTypes } from "../../../../services/api/tioanime/api.utils";
 import CheckboxContainer from "../../../container/checkbox-container/checkbox-container";
 import SelectModal from "../../select-modal/select-modal";
 

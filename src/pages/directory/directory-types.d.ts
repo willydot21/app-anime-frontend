@@ -1,5 +1,5 @@
 
-import { Filters, FiltersResult } from "../../services/api/api-types"
+import { Filters, FiltersResult } from "../../services/api/tioanime/api-types"
 
 export type FilterItemState = [FiltersResult, React.Dispatch<React.SetStateAction<FiltersResult>>];
 

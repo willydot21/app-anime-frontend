@@ -1,6 +1,6 @@
 
-import { AnimeSearch, ApiError } from "../../../../services/api/api-types";
-import TioanimeApi from "../../../../services/api/api";
+import { AnimeSearch, ApiError } from "../../../../services/api/tioanime/api-types";
+import TioanimeApi from "../../../../services/api/tioanime/api";
 import React from "react";
 import { queryItemsInitialState } from "../../../../pages/search/search.utils";
 

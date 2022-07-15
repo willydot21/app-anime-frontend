@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import FiltersForm from "../../components/form/filters/filters";
 import FilterTags from "../../components/section/filter-tags/filter-tags";
 import SearchWrapper from "../../components/section/search-wrapper/search-wrapper";
-import { FiltersResult, Filters } from "../../services/api/api-types";
+import { FiltersResult, Filters } from "../../services/api/tioanime/api-types";
 import { handleFiltersLoadMore, handlerFindFilters, setQueryParams } from "./directory.utils";
 import { useSearchParams } from 'react-router-dom';
 

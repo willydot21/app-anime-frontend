@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimeSearch, FiltersResult } from "../../../services/api/api-types";
+import { AnimeSearch, FiltersResult } from "../../../services/api/tioanime/api-types";
 
 export interface SearchSectionProps {
   externalInputRef?: React.RefObject<HTMLInputElement>;

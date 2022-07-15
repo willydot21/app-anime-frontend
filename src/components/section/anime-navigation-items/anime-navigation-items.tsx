@@ -1,7 +1,7 @@
 
 import ReleatedAnimes from "../anime-releated/releated-animes";
 import AnimeEpisodes from "../anime-episodes/anime-episodes";
-import { AnimeInfo } from "../../../services/api/api-types";
+import { AnimeInfo } from "../../../services/api/tioanime/api-types";
 
 const AnimeNavigationItems = ({ animeInfo }:{ animeInfo:AnimeInfo }) => {
 

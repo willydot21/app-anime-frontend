@@ -1,6 +1,6 @@
 
-import TioanimeApi from "../../services/api/api";
-import { AnimeProgramming, ApiError } from "../../services/api/api-types";
+import TioanimeApi from "../../services/api/tioanime/api";
+import { AnimeProgramming, ApiError } from "../../services/api/tioanime/api-types";
 
 export const ProgrammingInitialState: AnimeProgramming = {
   monday: [],

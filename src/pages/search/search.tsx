@@ -1,7 +1,7 @@
 
 import './search.css';
 import { useState } from "react";
-import { AnimeSearch } from '../../services/api/api-types';
+import { AnimeSearch } from '../../services/api/tioanime/api-types';
 import { handlerSearchMore, queryItemsInitialState } from './search.utils';
 import SearchSection from '../../components/section/search-section/search-section';
 import SearchWrapper from '../../components/section/search-wrapper/search-wrapper';

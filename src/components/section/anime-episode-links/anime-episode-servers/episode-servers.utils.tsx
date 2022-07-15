@@ -1,7 +1,8 @@
 
+import { linkSync } from "fs";
 import { fixBodyOverflow } from "../../../../app.utils";
-import TioanimeApi from "../../../../services/api/api";
-import { AnimeLinks, ApiError } from "../../../../services/api/api-types";
+import TioanimeApi from "../../../../services/api/tioanime/api";
+import { AnimeLinks, ApiError } from "../../../../services/api/tioanime/api-types";
 
 const linkIcons = {
   mega: 'https://seeklogo.com/images/M/mega-icon-logo-75FF6A408B-seeklogo.com.png',
@@ -38,7 +39,21 @@ export const getAnimeLinks = async (
 
 }
 
-export const MapAnimeLinks = (animeLinks:AnimeLinks) => {
+const animeLinkClick = (
+  newSelectedServer:{ src:string, server:string, episode:number },
+  setSelectedServer:React.Dispatch<React.SetStateAction<{src:string, server:string, episode:number}>>
+) => {
+
+  fixBodyOverflow();
+
+  setSelectedServer(newSelectedServer);
+
+}
+
+export const MapAnimeLinks = (
+  animeLinks:AnimeLinks, 
+  setSelectedServer:React.Dispatch<React.SetStateAction<{src:string, server:string, episode:number}>>
+) => {
 
   const watchLinks = animeLinks.links.watch_links;
 
@@ -48,7 +63,7 @@ export const MapAnimeLinks = (animeLinks:AnimeLinks) => {
 
     return watchLinks[server].map( link => (
 
-      <li data-value={link} className="episode-server" data-bs-dismiss="modal" onClick={ fixBodyOverflow }> 
+      <li data-value={link} className="episode-server" data-bs-dismiss="modal" onClick={ () => animeLinkClick({src:link, server, episode:animeLinks.chapter}, setSelectedServer) }> 
 
         <div> <img className="server-icon" src={linkIcons[server as keyof typeof linkIcons]} /> {server} </div>
 

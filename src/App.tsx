@@ -11,6 +11,7 @@ import AppSearch from './pages/search/search';
 import { useEffect } from 'react';
 import AppDirectory from './pages/directory/directory';
 import { removeFuckModals } from './app.utils';
+import EpisodePlayer from './pages/episode-player/episode-player';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/login" element={<AppLogin />} />
         <Route path="/" element={<AppHome />} />
         <Route path="/anime/:id" element={<AppAnime />} />
+        <Route path="/anime/:id/episode/:episode" element={<EpisodePlayer />} />
         <Route path="/search" element={<AppSearch />} />
         <Route path="/programming" element={<AppProgramming />} />
         <Route path="/directory" element={<AppDirectory />} />

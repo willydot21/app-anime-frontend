@@ -2,7 +2,7 @@
 import './style.css';
 import React, { useEffect, useState } from "react";
 import SelectModal from "../../../form/select-modal/select-modal";
-import { AnimeLinks } from "../../../../services/api/api-types";
+import { AnimeLinks } from "../../../../services/api/tioanime/api-types";
 import { getAnimeLinks, MapAnimeLinks } from "./episode-servers.utils";
 import AppLoading from '../../../others/loading';
 
@@ -14,7 +14,7 @@ const serverLinksIS:AnimeLinks = {
 }
 
 const EpisodeServersModal = ({ setSelectedServer, serverEpisode }:{ 
-  setSelectedServer:React.Dispatch<React.SetStateAction<string>>
+  setSelectedServer:React.Dispatch<React.SetStateAction<{src:string, server:string, episode:number}>>
   serverEpisode:{id:string, episode:number}
 }) => {
 
@@ -31,7 +31,7 @@ const EpisodeServersModal = ({ setSelectedServer, serverEpisode }:{
     <SelectModal id="episode-servers-modal" title="Servidores">{
       loading
       ? <AppLoading />
-      : <ul className="episode-servers"> {MapAnimeLinks(serverLinks)} </ul>
+      : <ul className="episode-servers"> {MapAnimeLinks(serverLinks, setSelectedServer)} </ul>
     }</SelectModal>
   );
 }

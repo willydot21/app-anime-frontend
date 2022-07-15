@@ -1,6 +1,6 @@
 
 import './anime-info-section.css';
-import { AnimeInfo } from "../../../services/api/api-types";
+import { AnimeInfo } from "../../../services/api/tioanime/api-types";
 import AnimeInfoBanner from './anime-info-items/banner/anime-info-banner';
 import AnimeInfoRight from './anime-info-items/anime-info-right/anime-info-right';
 

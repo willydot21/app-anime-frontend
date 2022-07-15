@@ -1,5 +1,5 @@
 
-import { AnimeSearch, FiltersResult } from "../../../../services/api/api-types";
+import { AnimeSearch, FiltersResult } from "../../../../services/api/tioanime/api-types";
 
 export interface searchInputProps {
 

@@ -1,6 +1,6 @@
 
 import './style.css';
-import { AnimeSearch, ArticleItem, FiltersResult } from "../../../services/api/api-types";
+import { AnimeSearch, ArticleItem, FiltersResult } from "../../../services/api/tioanime/api-types";
 import DefaultContainer from "../../container/default-container/default-container";
 import DefaultContainerItem from '../../container/default-container-item/default-container-item';
 

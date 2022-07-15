@@ -1,5 +1,5 @@
 
-import { AnimeSearch, FiltersResult } from "../../../services/api/api-types";
+import { AnimeSearch, FiltersResult } from "../../../services/api/tioanime/api-types";
 
 type ValidSetItems = React.Dispatch<React.SetStateAction<AnimeSearch>> | React.Dispatch<React.SetStateAction<FiltersResult>>;
 
