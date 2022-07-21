@@ -6,6 +6,7 @@ import { AnimeEpisodesProps } from "./anime-episodes-types";
 import { handlerSetServerEpisode } from './anime-episodes.utils';
 import EpisodeOptionsModal from '../anime-episode-links/anime-episode-servers/episode-servers';
 import { useNavigate } from 'react-router-dom';
+import NoElements from '../no-elements/no-elements';
 
 const AnimeEpisodes = ({item, name}:{item:AnimeEpisodesProps, name:string}) => {
 
@@ -15,11 +16,11 @@ const AnimeEpisodes = ({item, name}:{item:AnimeEpisodesProps, name:string}) => {
 
   const navigation = useNavigate();
 
-  const episodeRange = [...Array(item.episodes).keys()];
+  const episodeRange = item.episodes
+  ? [...Array(item.episodes).keys()]
+  : [];
 
   useEffect(() => {
-
-    console.log(selectedServer);
 
     if (selectedServer.src.length) {
 
@@ -31,16 +32,12 @@ const AnimeEpisodes = ({item, name}:{item:AnimeEpisodesProps, name:string}) => {
 
   return (
     <div section-name={name} className="navigation-hidden" >
-      <div className="anime-episodes">
-        {
-          episodeRange.map((episode) => (
-            <AnimeEpisode
-              item={{ ...item, episode: episode + 1 }}
-              handlerSetServerEpisode={(episode:number) => handlerSetServerEpisode({id:item.id, episode}, [serverEpisode, setServerEpisode])}
-            />
-          )).reverse()
-        }
-      </div>
+      
+      <div className="anime-episodes">{
+        item.episodes
+        ? episodeRange.map((episode) => (<AnimeEpisode item={{ ...item, episode: episode + 1 }} handlerSetServerEpisode={(episode: number) => handlerSetServerEpisode({ id: item.id, episode }, [serverEpisode, setServerEpisode])} />)).reverse()
+        : <NoElements />
+      }</div>
 
       <EpisodeOptionsModal serverEpisode={serverEpisode} setSelectedServer={setSelectedServer} />
 

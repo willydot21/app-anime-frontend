@@ -40,6 +40,7 @@ function App() {
         <Route path="/search" element={<AppSearch />} />
         <Route path="/programming" element={<AppProgramming />} />
         <Route path="/directory" element={<AppDirectory />} />
+        <Route path="/test" element={ <video controls src="https://cdn62.my.mail.ru/v/74885048.mp4?slave[]=s%3Ahttp%3A%2F%2Fvideo-cephrgw1.i%3A9091%2Fvideo4%2F74885048-v&p=f&expire_at=1658397600&touch=1658339816&reg=55&sign=6fd88e3628e7761ac4b38b9e64f88e61cbacea9e" />} />
       </Routes>
     </div>
   );

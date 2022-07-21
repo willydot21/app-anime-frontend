@@ -28,7 +28,7 @@ const EpisodePlayer = () => {
 
     return (
       server === 'fembed'
-      ? <VideoPlayer sources={sources} />
+      ? <VideoPlayer sources={sources?[]:[]} />
       : <div className="episode-player">
           <iframe src={src} className="episode-player-iframe"></iframe>
           <p className="episode-player-title"> {name} {episode} </p>

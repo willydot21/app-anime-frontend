@@ -9,7 +9,7 @@ export default class XtractorJs {
 
       const encodedUrl = encodeURIComponent(fembed);
       
-      const res = await fetch(`http://localhost:3001/fembed?url=${encodedUrl}`);
+      const res = await fetch(`https://xtractor-api.herokuapp.com/fembed?url=${encodedUrl}`);;
 
       const json:_FEMBED_ = await res.json();
 

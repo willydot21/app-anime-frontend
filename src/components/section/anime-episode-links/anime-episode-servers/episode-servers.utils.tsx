@@ -62,17 +62,12 @@ export const MapAnimeLinks = (
   return servers.map( server => {
 
     return watchLinks[server].map( link => (
-
       <li data-value={link} className="episode-server" data-bs-dismiss="modal" onClick={ () => animeLinkClick({src:link, server, episode:animeLinks.chapter}, setSelectedServer) }> 
-
         <div> <img className="server-icon" src={linkIcons[server as keyof typeof linkIcons]} /> {server} </div>
-
         { ['okru', 'fembed', 'mega'].includes(server) && <i className="material-icons">recommend</i> }
-
       </li>
-
     ));
     
-  })
+  });
 
 }
