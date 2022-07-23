@@ -1,0 +1,40 @@
+
+#app-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1444px;
+  margin: 0 auto;
+}
+
+.settings-fill-image {
+  display: flex;
+  width: 50%;
+  max-width: 420px;
+  border-radius: 50%;
+}
+
+.setting-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px 10px;
+  margin: 5px 0px;
+  text-align: left;
+  color: white;
+  font-size: 1em;
+  width: 100%;
+  background-color: black;
+  border: 0px;
+}
+
+.setting-link i {
+  margin-right: 10px;
+}
+
+@media (pointer:fine) {
+  .setting-link:hover {
+    background-color: rgb(10, 10, 10);
+
+  }
+}

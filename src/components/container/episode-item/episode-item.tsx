@@ -15,7 +15,7 @@ const EpisodeItem = ({item}:EpisodeItemProps) => {
   
   return (
     <NavLink 
-      to={`anime/${animeId}/episode/${episode}`} 
+      to={`anime/${animeId}`} 
       className="episode-item"
     >
       <img src={poster} alt="" /> 

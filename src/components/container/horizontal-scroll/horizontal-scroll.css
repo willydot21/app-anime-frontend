@@ -7,5 +7,7 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   display: flex;
+  flex-direction: row;
+  width: 100%;
   overflow-x: auto;
 }

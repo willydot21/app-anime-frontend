@@ -1,0 +1,51 @@
+
+.settings-section-container {
+  width: 90%;
+  margin: 20px 0px;
+}
+
+.settings-checkbox {
+  position: absolute;
+  right: 20px;
+  padding: 0px 20px;
+  background-color: rgb(40, 40, 40);
+  border: 0px;
+}
+
+.settings-checkbox:checked {
+  background-color: rgb(107, 107, 107);
+}
+
+.settings-checkbox:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.settings-section-name {
+  color: rgb(200, 200, 200);
+  font-size: 1.2em;
+  margin: 20px 0px;
+  font-weight: 600;
+}
+
+.settings-checkbox:hover {
+  cursor: pointer;
+}
+
+.settings-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid rgb(40, 40, 40);
+  border-right: 0px;
+  border-left: 0px;
+  padding: 10px 0px;
+}
+
+@media (width < 620px) {
+  .settings-section-container {
+    width: 100%;
+    padding: 0px 10px;
+  }
+}

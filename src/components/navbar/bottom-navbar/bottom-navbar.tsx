@@ -27,13 +27,6 @@ const BottomNavbar = () => {
         <p> Siguiendo </p>
       </NavLink>
 
-      <NavLink to="/programming" className="bottom-navbar-link">
-        <span className="material-icons">
-          video_library
-        </span>
-        <p> Programacion </p>
-      </NavLink>
-
     </div>
   )
 }

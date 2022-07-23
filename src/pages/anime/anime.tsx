@@ -25,20 +25,14 @@ const AppAnime = () => {
   }, [params]);
 
   return (
-    
     animeInfo.anime_id
-    ? (
-      <div className="app-anime">
-
+    ? <div className="app-anime">
         <AnimeInfoSection item={animeInfo} />
-
         <div className="small-margin"> 
           <Navigation elements={AnimeNavigationItems({animeInfo})} defaultItem="Episodios" /> 
         </div>
-
-      </div> 
-    ) : <AppLoading />
-
+      </div>
+    : <AppLoading />
   );
   
 }

@@ -10,16 +10,12 @@ const parseQueryParams = (queryParams:URLSearchParams) => {
   queryParams.forEach((value, query) => {
 
     if (['years', 'genres', 'types'].includes(query) && !filters[query]) {
-
       filters[query] = [];
-
     }
 
     (Array.isArray(filters[query])
-
-      ? (filters[query] as string[]).push(value)
-
-      : filters[query] = value);
+    ? (filters[query] as string[]).push(value)
+    : filters[query] = value);
 
   });
 

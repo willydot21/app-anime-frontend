@@ -1,7 +1,11 @@
 
 export interface RegistrationProps {
-  children: JSX.Element;
-  callbackSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  loginState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+  children: React.ReactNode;
+  callbackSubmit: (
+    event: React.FormEvent<HTMLFormElement>, 
+    loadingState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
+  ) => void;
 }
 
 export interface WrapperStates {

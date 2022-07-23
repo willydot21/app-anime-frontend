@@ -15,22 +15,23 @@ const handleOnLoad = (
 
     const $this = ref.current;
 
-    const multiplication = ( (20 - ((20 * Math.ceil( ((index+1)/20) ))-index)) ) + 1;
+    // prev: ( (20 - ((20 * Math.ceil( ((index+1)/20) ))-index)) ) + 1;
 
-    $this.style.minHeight = '30vh';
+    const time = -1 * ( 20 * Math.floor(index / 20) - index ) + 1;
+
+    $this.style.height = '30vh';
 
     setTimeout(() => {
 
-      $this.style.minHeight = 'unset';
+      $this.style.height = 'unset';
 
       $this.style.opacity = '100%';
 
-      $this.style.transform = 'scale(1)';
-
       setItemProps(newItemProps);
 
+      $this.style.transform = 'scale(1)';
 
-    }, 100*multiplication);
+    }, 100*time);
 
     // smooth effect.
   
@@ -41,7 +42,7 @@ const handleOnLoad = (
 const DefaultContainerItem = ({item, link, index}:ContainerItemProps) => {
 
   const [ itemProperties, setItemProperties ] = useState({
-    src: 'https://i.pinimg.com/originals/a5/a8/31/a5a8318c9abc50a09f836028a41c6985.gif',
+    src: 'https://i.pinimg.com/originals/ff/e1/bb/ffe1bb70f9393f0c115df6a33773f937.gif',
     title: 'LOADING ...'
   });
 

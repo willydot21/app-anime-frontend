@@ -3,7 +3,15 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 2vw;
   margin-top: 20px;
   transition: .3s;
+}
+
+@media (width > 1080px) {
+
+  .default-container {
+    gap: 20px;
+  }
+
 }

@@ -16,6 +16,11 @@
   border-radius: 50%;
 }
 
-.home-navbar-links a{
-  margin-right: 10px;
+.home-navbar-links a {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 1.1em;
+}
+
+.home-navbar-links a:first-child{
+  margin-right: 30px;
 }

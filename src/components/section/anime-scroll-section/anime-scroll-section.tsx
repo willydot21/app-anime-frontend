@@ -15,16 +15,9 @@ const ScrollAnimeSection = ({items, section, link}:AnimeScrollSectionProps) => {
         section={section}
       />
 
-      <HorizontalScroll>
-        {
-          items.map(item => (
-            <ContainerItem
-              item={item}
-              link={`anime/${item.id}`}
-            />
-          ))
-        }
-      </HorizontalScroll>
+      <HorizontalScroll>{
+        items.map(item => <ContainerItem item={item} link={`anime/${item.id}`} />)
+      }</HorizontalScroll>
 
     </div>
   );

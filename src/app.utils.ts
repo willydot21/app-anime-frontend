@@ -1,13 +1,13 @@
 
 export const removeFuckModals = () => {
 
-  document.querySelectorAll('.modal').forEach( modal => {
+  document.querySelectorAll('.modal.show').forEach( modal => {
 
     modal.remove();
 
   });
 
-  document.querySelectorAll('.modal-backdrop').forEach( backdrop => {
+  document.querySelectorAll('.modal-backdrop.show').forEach( backdrop => {
 
     backdrop.remove();
 
