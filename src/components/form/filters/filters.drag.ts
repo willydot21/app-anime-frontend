@@ -80,12 +80,17 @@ function dragStop(form:HTMLFormElement, originalTop:number, setActive:React.Disp
   document.ontouchmove = null;
 
   if (form.offsetTop>=(originalTop*1.5)) {
+    
     form.style.top = '100%';
+
     document.body.style.overflow = 'auto';
+    
     setActive(false);
-  } else if (
-    !form.classList.contains('filters-focus')) {
+
+  } else if (!form.classList.contains('filters-focus')) {
+    
     form.style.top = originalTop+'px';
+    
   }
   // check if is scrolling top.
 

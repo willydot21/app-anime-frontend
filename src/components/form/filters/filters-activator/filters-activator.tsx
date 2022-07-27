@@ -1,6 +1,6 @@
 
 import './style.css';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { showFiltersForm, setupActivator } from "./filters-activator-utils";
 
 const FiltersActivator = (

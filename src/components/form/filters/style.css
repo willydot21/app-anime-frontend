@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.filters-container:active {
+  cursor: grabbing;
+}
+
 .filters-form { 
   position: fixed;
   bottom: 0%;

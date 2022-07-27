@@ -12,11 +12,13 @@ import AppDirectory from './pages/directory/directory';
 import { removeFuckModals } from './app.utils';
 import EpisodePlayer from './pages/episode-player/episode-player';
 import AppSettings from './pages/settings/settings';
-import { getCurrentSession } from './services/database/registration/utils';
+import useUser from './hooks/useUserHook/useUser';
 
 function App() {
 
-  const [logged, setLogged] = useState(false);
+  const user = useUser();
+
+  const [logged] = user.logged;
 
   const location = useLocation();
 
@@ -31,25 +33,37 @@ function App() {
 
   },[location.pathname]);
 
-  useEffect(() => {
-    
-    const data = getCurrentSession(setLogged);
-
-  }, []);
-
   return (
     <div className="App">
+      
       <Routes>
+
         <Route path="*" element={<AppNotFound />} />
-        <Route path="/register" element={<AppRegister loginState={[logged, setLogged]}/>} />
-        <Route path="/login" element={<AppLogin loginState={[logged, setLogged]}/>} />
+
+        <Route path="/register" element={
+          <AppRegister logged={logged} register={user.register}/> 
+        }/>
+
+        <Route path="/login" element={
+          <AppLogin {...{logged, login:user.login}} />
+        }/>
+
         <Route path="/" element={<AppHome />} />
+
         <Route path="/anime/:id" element={<AppAnime />} />
+
         <Route path="/anime/:id/episode/:episode" element={<EpisodePlayer />} />
+
         <Route path="/search" element={<AppSearch />} />
+
         <Route path="/directory" element={<AppDirectory />} />
-        <Route path="/settings" element={<AppSettings appLoginState={[logged, setLogged]} />} />
+
+        <Route path="/settings" element={
+          <AppSettings logged={logged} userLogout={user.logout} />
+        }/>
+
       </Routes>
+
     </div>
   );
 

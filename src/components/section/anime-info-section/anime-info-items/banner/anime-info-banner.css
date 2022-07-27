@@ -24,6 +24,7 @@
   transition: .3s;
   border: 2px solid;
   border-radius: 50%;
+  font-size: 100%;
 }
 
 .banner-shadow a:hover {

@@ -1,5 +1,4 @@
 
-import { fixBodyOverflow } from '../../../app.utils';
 import './btn-close-style.css';
 import { bgb, bdg } from "./style";
 // bgb: background color dark
@@ -20,7 +19,7 @@ const SelectModal = ({ children, id, title }:{
           {children}
         </div>
         <div className="modal-footer" style={bdg}>
-          <button type="button" className="btn-close-modal" data-bs-dismiss="modal" onClick={fixBodyOverflow}>Ok</button>
+          <button type="button" className="btn-close-modal" data-bs-dismiss="modal">Ok</button>
         </div>
       </div>
     </div>

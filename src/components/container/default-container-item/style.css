@@ -2,7 +2,6 @@
 .default-container-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 40.9%;
   min-width: 110px;
   margin: 0px 10px;
@@ -22,7 +21,8 @@
 }
 
 .default-container-item span {
-  font-size: 1.2em;
+  font-size: 100%;
+  width: 100%;
   font-weight: 600;
   margin-top: 5px;
   white-space: nowrap;

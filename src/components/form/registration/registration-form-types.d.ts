@@ -1,11 +1,9 @@
 
+export type SubmitRegistrationEvent = (event: React.FormEvent<HTMLFormElement>) => void;
+
 export interface RegistrationProps {
-  loginState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
   children: React.ReactNode;
-  callbackSubmit: (
-    event: React.FormEvent<HTMLFormElement>, 
-    loadingState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
-  ) => void;
+  callbackSubmit: SubmitRegistrationEvent;
 }
 
 export interface WrapperStates {

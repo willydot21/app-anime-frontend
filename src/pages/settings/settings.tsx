@@ -5,18 +5,17 @@ import React, { useState } from 'react';
 import SettingsLogin from '../../components/section/settings-section/app-sections/settings-login';
 import SettingsVideo from '../../components/section/settings-section/app-sections/settings-video';
 
-const AppSettings = ({ appLoginState }:{
-  appLoginState: [ boolean, React.Dispatch<React.SetStateAction<boolean>> ]
+const AppSettings = ({ logged, userLogout }:{
+  logged: boolean,
+  userLogout: () => void
 }) => {
-
-  const [logged, setLogged] = appLoginState;
 
   const [usePlayer, setUsePlayer] = useState(false);
 
   return (
     <div id="app-settings">
       <img src={icon} className="settings-fill-image" />
-      <SettingsLogin loginState={[logged, setLogged]} />
+      <SettingsLogin logged={logged} userLogout={userLogout} />
       <SettingsVideo usePlayerState={[usePlayer, setUsePlayer]}/>
     </div>
   );

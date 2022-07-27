@@ -1,9 +1,9 @@
 
 import './style.css';
 import { useLocation } from "react-router-dom";
-import AppNotFound from "../404";
 import { PlayerLocationState } from "./episode-player-types";
 import { _FEMBED_DATA_SOURCES_ } from '../../services/api/XtractorJs/api-types';
+import AppNotFound from '../404';
 
 const EpisodePlayer = () => {
 
@@ -21,7 +21,7 @@ const EpisodePlayer = () => {
 
   }
 
-  return <AppNotFound />
+  return <AppNotFound error="Error; no se seleccionó, el servidor." />;
 
 }
 

@@ -8,7 +8,7 @@ const registration = async (
   loginState:[boolean, React.Dispatch<React.SetStateAction<boolean>>]
 ) => {
 
-  var body = {};
+  var body = {}
 
   const [ logged, setLogged ] = loginState;
 
@@ -19,7 +19,7 @@ const registration = async (
       username: username.value,
       email: email.value,
       password: password.value
-    };
+    }
 
   } else {
 
@@ -27,23 +27,22 @@ const registration = async (
     body = {
       email: email.value,
       password: password.value
-    };
+    }
 
   }
 
   // remember to change url , if it want to test on mobile.
-  const req = await fetch('http://192.168.18.10:3001/'+method, {
+  const req = await fetch('http://localhost:3001/'+method, {
     method: 'POST',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   });
 
   const res = await req.json();
 
-  if(res.error !== null) PostError.HandlerPostError(form, res);
+  if (res.error !== null) PostError.HandlerPostError(form, res);
   else {
-    console.log(logged);
-    window.localStorage.setItem('loggedUserInfo',JSON.stringify(res));
     setLogged(true);
     Navigate({ to:'/' });
   }

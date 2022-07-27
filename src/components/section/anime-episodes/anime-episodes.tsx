@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import AnimeEpisode from "./anime-episode/anime-episode";
 import { AnimeEpisodesProps } from "./anime-episodes-types";
 import { handlerSetServerEpisode } from './anime-episodes.utils';
-import EpisodeOptionsModal from '../anime-episode-links/anime-episode-servers/episode-servers';
+import EpisodeOptionsModal from '../anime-episode-links/episode-servers';
 import { useNavigate } from 'react-router-dom';
 import NoElements from '../no-elements/no-elements';
 

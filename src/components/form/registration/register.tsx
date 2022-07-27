@@ -1,20 +1,17 @@
 
-import { registerUser } from '../../../services/database/registration/index';
 import RegistrationWrapper from "./wrapper-registration";
 import RegistrationButton from "../../input/button/registration-button/registration-button";
 import PlaceHolderInput from "../../input/text/placeholder-input/placeholder-input";
 import { Navigate, NavLink } from 'react-router-dom';
-import React from 'react';
+import { SubmitRegistrationEvent } from './registration-form-types';
 
-const AppRegister = ({ loginState } : { 
-  loginState:[boolean, React.Dispatch<React.SetStateAction<boolean>>] 
+const AppRegister = ({ logged, register } : { 
+  logged:boolean,
+  register:SubmitRegistrationEvent
 }) => {
-
-  const [ logged ] = loginState;
-
   return (
-    !logged
-    ? <RegistrationWrapper callbackSubmit={registerUser} loginState={loginState}>
+    ! logged
+    ? <RegistrationWrapper callbackSubmit={register}>
         <PlaceHolderInput placeholder="username" name="username" />
         <PlaceHolderInput placeholder="email" name="email" />
         <PlaceHolderInput placeholder="password" name="password" type="password"/>

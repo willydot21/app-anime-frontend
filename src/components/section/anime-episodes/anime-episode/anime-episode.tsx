@@ -16,7 +16,7 @@ const AnimeEpisode = ({ item, handlerSetServerEpisode }:{
 
   const $className = `anime-episode ${watched?'watched':''}`
 
-  const { id, episode, poster, name, animePoster } = item;
+  const { episode, poster, name, animePoster } = item;
 
   return (
     <div className={$className}>

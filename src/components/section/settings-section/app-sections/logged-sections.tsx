@@ -2,11 +2,11 @@
 import { NavLink } from "react-router-dom";
 import { handleLogout } from "../../../../services/database/registration/utils";
 
-const Logged = ({ setLogged }:{
-  setLogged:React.Dispatch<React.SetStateAction<boolean>>
+const Logged = ({ userLogout }:{
+  userLogout: () => void
 }) => (
   <>
-  <button className="setting-link" onClick={() => handleLogout(setLogged)}>
+  <button className="setting-link" onClick={userLogout}>
     <i className="material-icons">logout</i> Logout
   </button>
   <button className="setting-link">

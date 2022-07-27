@@ -9,11 +9,14 @@ const AnimeInfoSection = ({item}:{item:AnimeInfo}) => {
   return (
     <div className="anime-info">
 
-      <AnimeInfoBanner banner={item.banner} poster={item.poster} />
+      <AnimeInfoBanner 
+        banner={item.banner} 
+        poster={item.poster} 
+        animeid={item.anime_id} />
 
       <div className="anime-info-container">
         <img src={item.poster} alt='' />
-        <AnimeInfoRight item={ item } />
+        <AnimeInfoRight item={item} />
       </div>
 
     </div>

@@ -1,10 +1,10 @@
 
 import './style.css';
 import React, { useEffect, useState } from "react";
-import SelectModal from "../../../form/select-modal/select-modal";
-import { AnimeLinks } from "../../../../services/api/tioanime/api-types";
+import SelectModal from "../../form/select-modal/select-modal";
+import { AnimeLinks } from "../../../services/api/tioanime/api-types";
 import { getAnimeLinks, MapAnimeLinks } from "./episode-servers.utils";
-import AppLoading from '../../../others/loading';
+import AppLoading from '../../others/loading';
 
 const serverLinksIS:AnimeLinks = {
   id: '', chapter:0,

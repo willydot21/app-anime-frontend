@@ -1,17 +1,15 @@
 
-import React from "react";
 import SettingsSection from "../settings-section";
 import { Logged, NotLogged } from "./logged-sections";
 
-const SettingsLogin = ({ loginState }:{ 
-  loginState:[boolean, React.Dispatch<React.SetStateAction<boolean>>] 
+const SettingsLogin = ({ logged, userLogout }:{ 
+  logged: boolean,
+  userLogout: () => void
 }) => {
-
-  const [logged, setLogged] = loginState;
 
   return (
     <SettingsSection name="Ajustes de cuenta">
-      {logged && <Logged setLogged={setLogged}/>}
+      {logged && <Logged userLogout={userLogout}/>}
       {!logged && <NotLogged/>}
     </SettingsSection>
   );

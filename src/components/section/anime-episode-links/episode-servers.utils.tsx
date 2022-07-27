@@ -1,8 +1,7 @@
 
-import { linkSync } from "fs";
-import { fixBodyOverflow } from "../../../../app.utils";
-import TioanimeApi from "../../../../services/api/tioanime/api";
-import { AnimeLinks, ApiError } from "../../../../services/api/tioanime/api-types";
+import { fixBodyOverflow } from "../../../app.utils";
+import TioanimeApi from "../../../services/api/tioanime/api";
+import { AnimeLinks, ApiError } from "../../../services/api/tioanime/api-types";
 
 const linkIcons = {
   mega: 'https://seeklogo.com/images/M/mega-icon-logo-75FF6A408B-seeklogo.com.png',
