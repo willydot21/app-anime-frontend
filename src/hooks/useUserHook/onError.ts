@@ -1,4 +1,4 @@
-
+import { removePreviousSpan } from "./utils";
 
 class PostError {
 
@@ -8,27 +8,21 @@ class PostError {
   ) {
 
     const span = form.querySelector(
-      `input[name=${inputName}] + span`
+      `.input-error-message`
     ) as HTMLSpanElement;
 
     const input = form.querySelector(`input[name=${inputName}]`) as HTMLInputElement;
 
     if (input && span) {
 
+      input.value = '';
+
       setTimeout(() => {
-        input.value = '';
-      }, 300);
 
-      input.onfocus = function () {
-
-        if (span.nextSibling) {
-          span.nextSibling.remove();
-        }
+        span.remove();
         // remove error text.
 
-        document.onclick = null;
-
-      } // end document onclick event.
+      }, 2000);
 
     } // end if.
 
@@ -50,6 +44,8 @@ class PostError {
 
     if (span) {
 
+      removePreviousSpan(form);
+
       span.after(textNode);
 
       textNode.animate([
@@ -62,55 +58,38 @@ class PostError {
 
   } // end method.
 
-  public static highlightErrorInput(
-    form: HTMLFormElement, inputName: string
+  public static handleError(
+    form: HTMLFormElement,
+    err: { error: string, code: string },
+    inputName: string
   ) {
-
-    const input = form.querySelector(`input[name=${inputName}]`) as HTMLInputElement;
-
-    const span = form.querySelector(`input[name=${inputName}] + span`) as HTMLSpanElement;
-
-    if (input && span) {
-
-      input.animate([{},
-      { transform: "translateX(-5px)", color: "red", borderColor: "red" },
-      { transform: "translateX(+5px)" }
-      ], { duration: 300 });
-      // a small feedback
-
-    } else { console.log('something is wrong'); }
-
-  } // end method.
+    this.showError(form, err.error, inputName);
+    this.removeErrorEvent(form, inputName);
+  }
 
   public static HandlerPostError(
     form: HTMLFormElement, err: { error: string, code: string }
   ) {
 
-    const handlerError = (inputName: string) => {
-      this.highlightErrorInput(form, inputName);
-      this.showError(form, err.error, inputName);
-      this.removeErrorEvent(form, inputName);
-    }
-
     switch (err.code) {
       case 'EINV409': // email is not valid
-        handlerError('email');
+        this.handleError(form, err, 'email');
         break;
 
       case 'PINV409': // password is not valid
-        handlerError('password');
+        this.handleError(form, err, 'password');
         break;
 
       case 'EAE409': // email already exist
-        handlerError('email')
+        this.handleError(form, err, 'email')
         break;
 
       case 'UINF404': // user is not found
-        handlerError('email');
+        this.handleError(form, err, 'email');
         break;
 
       case 'IPW400': // incorrect password
-        handlerError('password');
+        this.handleError(form, err, 'password');
         break;
 
       case 'SE500': // server error

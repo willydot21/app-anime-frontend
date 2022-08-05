@@ -2,15 +2,17 @@
 import SettingsSection from "../settings-section";
 import { Logged, NotLogged } from "./logged-sections";
 
-const SettingsLogin = ({ logged, userLogout }:{ 
+const SettingsLogin = ({ logged, userLoginHandlers }: {
   logged: boolean,
-  userLogout: () => void
+  userLoginHandlers: {
+    userLogout: () => void
+  }
 }) => {
 
   return (
     <SettingsSection name="Ajustes de cuenta">
-      {logged && <Logged userLogout={userLogout}/>}
-      {!logged && <NotLogged/>}
+      {logged && <Logged loginHandlers={userLoginHandlers} />}
+      {!logged && <NotLogged />}
     </SettingsSection>
   );
 };

@@ -4,10 +4,10 @@ import { AnimeInfo } from "../../../../../services/api/tioanime/api-types";
 import AnimeOtherInfo from "../other-info/anime-other-info";
 import AnimeInfoGenres from "../genres/anime-info-genres";
 
-const Synopsis = ({synopsis}:{synopsis:string}) => (
+const Synopsis = ({ synopsis }: { synopsis: string }) => (
   synopsis
-  ? <p className="anime-info-synopsis"> {synopsis} </p> 
-  : <p className="no-synopsis"> No hay sinopsis. </p>
+    ? <p className="anime-info-synopsis"> {synopsis} </p>
+    : <p className="no-synopsis"> No hay sinopsis. </p>
 );
 
 const AnimeInfoRight = ({ item }: { item: AnimeInfo }) => {
@@ -15,7 +15,7 @@ const AnimeInfoRight = ({ item }: { item: AnimeInfo }) => {
     <div className="anime-info-right">
 
       <h3 className="anime-info-title"> {item.name} </h3>
-      
+
       <Synopsis synopsis={item.synopsis} />
 
       <AnimeOtherInfo

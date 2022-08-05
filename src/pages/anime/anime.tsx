@@ -8,14 +8,14 @@ import AnimeInfoSection from "../../components/section/anime-info-section/anime-
 import AnimeNavigationItems from "../../components/section/anime-navigation-items/anime-navigation-items";
 import { fetchAnimeInfo, initialState } from "./anime.utils";
 
-const AppAnime = () => {
+const AppAnime = ({ }) => {
 
   const [animeInfo, setAnimeInfo] = useState(initialState);
 
   const params = useParams();
 
-  useEffect( () => {
-    
+  useEffect(() => {
+
     fetchAnimeInfo(params.id || '', setAnimeInfo);
     // fetch elements, when params change.
 
@@ -26,15 +26,15 @@ const AppAnime = () => {
 
   return (
     animeInfo.anime_id
-    ? <div className="app-anime">
+      ? <div className="app-anime">
         <AnimeInfoSection item={animeInfo} />
-        <div className="small-margin"> 
-          <Navigation elements={AnimeNavigationItems({animeInfo})} defaultItem="Episodios" /> 
+        <div className="small-margin">
+          <Navigation elements={AnimeNavigationItems({ animeInfo })} defaultItem="Episodios" />
         </div>
       </div>
-    : <AppLoading />
+      : <AppLoading />
   );
-  
+
 }
 
 export default AppAnime;

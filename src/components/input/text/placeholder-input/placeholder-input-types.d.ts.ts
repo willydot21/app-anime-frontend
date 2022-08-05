@@ -6,4 +6,5 @@ export interface PlaceHolderInputProps {
   type?: string;
   _ref?: React.RefObject<HTMLInputElement>
   focus?: FocusEventHandler<HTMLInputElement>
+  mouseUp?: React.MouseEventHandler<HTMLInputElement>;
 }

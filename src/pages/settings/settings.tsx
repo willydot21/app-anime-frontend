@@ -1,13 +1,15 @@
 
 import './style.css';
 import icon from './media/icon.jpg';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SettingsLogin from '../../components/section/settings-section/app-sections/settings-login';
 import SettingsVideo from '../../components/section/settings-section/app-sections/settings-video';
 
-const AppSettings = ({ logged, userLogout }:{
+const AppSettings = ({ logged, userLoginHandlers }: {
   logged: boolean,
-  userLogout: () => void
+  userLoginHandlers: {
+    userLogout: () => void
+  }
 }) => {
 
   const [usePlayer, setUsePlayer] = useState(false);
@@ -15,8 +17,8 @@ const AppSettings = ({ logged, userLogout }:{
   return (
     <div id="app-settings">
       <img src={icon} className="settings-fill-image" />
-      <SettingsLogin logged={logged} userLogout={userLogout} />
-      <SettingsVideo usePlayerState={[usePlayer, setUsePlayer]}/>
+      <SettingsLogin logged={logged} userLoginHandlers={userLoginHandlers} />
+      <SettingsVideo usePlayerState={[usePlayer, setUsePlayer]} />
     </div>
   );
 }
