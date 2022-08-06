@@ -2,15 +2,16 @@
 import ReleatedAnimes from "../anime-releated/releated-animes";
 import AnimeEpisodes from "../anime-episodes/anime-episodes";
 import { AnimeInfo } from "../../../services/api/tioanime/api-types";
+import AnimeInfoSection from "../anime-info-section/anime-info-section";
 
-const AnimeNavigationItems = ({ animeInfo }:{ animeInfo:AnimeInfo }) => {
+const AnimeNavigationItems = ({ animeInfo }: { animeInfo: AnimeInfo }) => {
 
   return ({
 
-    'Relacionado': (<ReleatedAnimes name="Relacionado" releated={animeInfo.releated} />),
+    'Información': (<AnimeInfoSection animeInfo={animeInfo} />),
 
     'Episodios': (
-      <AnimeEpisodes name="Episodios" item={{
+      <AnimeEpisodes item={{
         episodes: animeInfo.chapters,
         poster: animeInfo.episodePoster,
         id: animeInfo.anime_id,

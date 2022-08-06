@@ -1,16 +1,8 @@
 
 import PostError from "./onError";
 import { Navigate } from "react-router-dom";
-import { ChangePasswordHandlerTypes } from "./hook-types";
-
-const baseUrl = 'http://localhost:3001/';
-
-const getFetchOptions = (body: string = '', method: string = 'POST'): RequestInit => ({
-  method,
-  credentials: 'include',
-  headers: { 'Content-Type': 'application/json' },
-  body: body,
-})
+import { ChangePasswordHandlerTypes, FollowingItem } from "./hook-types";
+import { getFetchOptions, baseUrl, authUrl } from "../../services/constants";
 
 const getBodyFromForm = (form: HTMLFormElement, method: string) => {
 
@@ -43,7 +35,7 @@ export const registration = async (
   setLogged: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
 
-  const req = await fetch(baseUrl + method, getFetchOptions(getBodyFromForm(form, method)));
+  const req = await fetch(`${baseUrl}/${method}`, getFetchOptions(getBodyFromForm(form, method)));
 
   const res = await req.json();
 
@@ -68,7 +60,7 @@ export const handleChangePassword = async (
 
   const newPassword = inputNewPass.value;
 
-  const url = `${baseUrl}auth/user/update`;
+  const url = `${authUrl}/update`;
 
   const body = JSON.stringify({
     password: oldPassword,
@@ -98,7 +90,7 @@ export const handleChangePassword = async (
 
 export const handleGetRefreshToken = async () => {
 
-  const url = baseUrl + 'refresh-token';
+  const url = baseUrl + '/refresh-token';
 
   const body = JSON.stringify({
     refreshToken: localStorage.getItem('refresh-token')
