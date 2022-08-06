@@ -4,7 +4,7 @@ import { AppDropdownProps } from './dropdown-types';
 import { dropdownClick } from './dropdown.util';
 import './style.css';
 
-const AppDropdown = ({ options, name, externalState }:AppDropdownProps) => {
+const AppDropdown = ({ options, name, externalState }: AppDropdownProps) => {
 
   const dropdownOptions = useRef<HTMLUListElement>(null);
 

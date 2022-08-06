@@ -1,43 +1,70 @@
-
 .anime-info {
   max-width: 1444px;
   margin: auto;
   white-space: wrap;
-  word-wrap:break-word;
+  word-wrap: break-word;
 }
 
-.anime-info-container {
+.anime-info-section {
+  margin: 10px 0px;
+  padding: 10px 0px;
+  border-bottom: 2px solid rgb(30, 30, 30);
+}
+
+.anime-info-title {
+  font-size: 1.30em;
+  margin-bottom: 20px;
+}
+
+.anime-info-subtitle {
+  font-size: 1.15em;
+  color: rgb(225, 225, 225);
+}
+
+.anime-info-text {
+  font-size: 1em;
+  color: rgb(150, 150, 150);
+}
+
+.anime-info-margin {
+  margin-bottom: 10px;
+}
+
+.anime-info-poster {
   display: flex;
-  flex-direction: row;
-  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px;
 }
 
-.anime-info-container img {
-  background-color: black;
-  padding: 10px;
+.anime-info-poster img {
   width: 30%;
-  height: 40vw;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  max-width: 150px;
   border-radius: 5px;
-  max-width: 240px;
-  max-height: 320px;
-  z-index: 100;
 }
 
-@media (width < 720px) {
+.anime-releated-margin {
+  border-top: 2px solid rgb(30, 30, 30);
+  padding: 20px 0px;
+  margin: 15px 0px;
+}
 
-  .anime-info-container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media (width < 600px) {
+  .anime-info-title {
+    font-size: 1.15em;
+    margin-bottom: 20px;
   }
 
-  .anime-info-container img {
-    max-width: none;
-    max-height: none;
-    height: 50vw;
-    width: 40%;
-    object-fit: cover;
-    object-position: center;
+  .anime-info-subtitle {
+    font-size: 1em;
+    color: rgb(225, 225, 225);
   }
 
+  .anime-info-text {
+    font-size: .9em;
+    color: rgb(150, 150, 150);
+  }
 }

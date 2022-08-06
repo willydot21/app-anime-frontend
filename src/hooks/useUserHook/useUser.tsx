@@ -63,16 +63,6 @@ export default function useUser(): UseUser {
 
   }
 
-  const getUserPlaylist = (playlist: string) => {
-
-  }
-
-  const getUserAnimeHistory = () => {
-
-
-
-  }
-
   const setupUser = async () => {
 
     if (localStorage.getItem('refresh-token')) {
@@ -93,9 +83,7 @@ export default function useUser(): UseUser {
     logout,
     changePassword,
     getRefreshToken,
-    setupUser,
-    getUserPlaylist,
-    getUserAnimeHistory
+    setupUser
   }
 
 }
