@@ -1,45 +1,38 @@
 
 export const changeSection = (
-  target:  HTMLInputElement, 
+  target: HTMLInputElement,
   setState: React.Dispatch<React.SetStateAction<string>>,
   navigationBar: React.RefObject<HTMLDivElement>
 ) => {
 
   const elementName = target.textContent;
 
-  const label = 
+  const label =
     navigationBar.current
-    ? navigationBar.current.firstChild as HTMLSpanElement
-    : null
-  ;
+      ? navigationBar.current.firstChild as HTMLSpanElement
+      : null
+    ;
 
-  if ( elementName && label && navigationBar.current) {
+  if (elementName && label && navigationBar.current) {
 
     label.style.left = `${target.offsetLeft}px`;
 
     label.style.width = `${target.clientWidth}px`;
 
-    navigationBar.current.querySelectorAll('.navigation-bar-active')
-      .forEach( button => {
-        button.classList.remove('navigation-bar-active');
-      });
-
-    target.classList.add('navigation-bar-active');
-
-    setState( elementName );
+    setState(elementName);
 
   }
 
 }
 
-export const getSectionByName = (  
+export const getSectionByName = (
   activeElement: string,
   navigationBar: React.RefObject<HTMLDivElement>
 ) => {
 
-  if ( navigationBar.current ) {
+  if (navigationBar.current) {
 
-    const element = navigationBar.current.querySelector( `button[name=${ activeElement }]` );
+    const element = navigationBar.current.querySelector(`button[name=${activeElement}]`);
 
     return element;
 
@@ -60,8 +53,8 @@ export const setupOnChange = (
 
   if (element) {
 
-    if ( renderAgain ) { 
-      changeSection(element as HTMLInputElement, setActive, navigationBar); 
+    if (renderAgain) {
+      changeSection(element as HTMLInputElement, setActive, navigationBar);
     }
 
     window.onresize = function () {
@@ -72,19 +65,19 @@ export const setupOnChange = (
 
 }
 
-export const setActiveSection = (containerRef:React.RefObject<HTMLDivElement>, activeSection:string) => {
+export const setActiveSection = (containerRef: React.RefObject<HTMLDivElement>, activeSection: string) => {
 
   if (containerRef.current) {
 
     const container = containerRef.current;
 
-    container.querySelectorAll('.navigation-active-section').forEach( node => {
+    container.querySelectorAll('.navigation-active-section').forEach(node => {
       node.classList.remove('navigation-active-section');
     })
 
-    const active = container.querySelector(`div[section-name=${ activeSection }]`) as HTMLDivElement;
+    const active = container.querySelector(`div[section-name=${activeSection}]`) as HTMLDivElement;
 
-    if ( active ) {
+    if (active) {
 
       active.classList.add('navigation-active-section');
 
