@@ -1,8 +1,7 @@
 
-import './releated-animes.css';
+import './style.css';
 import { AnimeInfo } from '../../../services/api/tioanime/api-types';
 import ReleatedItem from "../../container/releated-item/releated-item";
-import NoElements from '../no-elements/no-elements';
 
 const RenderReleated = ({ releated }: { releated: AnimeInfo['releated'] }) => (
   <div className="anime-releated-container">{

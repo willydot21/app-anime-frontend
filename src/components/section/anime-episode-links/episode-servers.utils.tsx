@@ -1,4 +1,5 @@
 
+import { v4 as uuid } from 'uuid';
 import { fixBodyOverflow } from "../../../app.utils";
 import TioanimeApi from "../../../services/api/tioanime/api";
 import { AnimeLinks, ApiError } from "../../../services/api/tioanime/api-types";
@@ -15,23 +16,23 @@ const linkIcons = {
 }
 
 export const getAnimeLinks = async (
-  { id, episode }:{ id:string, episode:number },
-  setServerLinks:React.Dispatch<React.SetStateAction<AnimeLinks>>,
-  setLoading:React.Dispatch<React.SetStateAction<boolean>>
+  { id, episode }: { id: string, episode: number },
+  setServerLinks: React.Dispatch<React.SetStateAction<AnimeLinks>>,
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
-  
+
   setLoading(true);
 
   const links = await TioanimeApi.getAnimeChapter(id, episode);
 
-  if (!(links as ApiError).message) { 
+  if (!(links as ApiError).message) {
 
     setServerLinks(links as AnimeLinks);
 
   } else {
 
-    setServerLinks({id, chapter:episode, links:{ download_links:{}, watch_links:{} }} as AnimeLinks);
-    
+    setServerLinks({ id, chapter: episode, links: { download_links: {}, watch_links: {} } } as AnimeLinks);
+
   }
 
   setLoading(false);
@@ -39,8 +40,8 @@ export const getAnimeLinks = async (
 }
 
 const animeLinkClick = (
-  newSelectedServer:{ src:string, server:string, episode:number },
-  setSelectedServer:React.Dispatch<React.SetStateAction<{src:string, server:string, episode:number}>>
+  newSelectedServer: { src: string, server: string, episode: number },
+  setSelectedServer: React.Dispatch<React.SetStateAction<{ src: string, server: string, episode: number }>>
 ) => {
 
   fixBodyOverflow();
@@ -50,23 +51,23 @@ const animeLinkClick = (
 }
 
 export const MapAnimeLinks = (
-  animeLinks:AnimeLinks, 
-  setSelectedServer:React.Dispatch<React.SetStateAction<{src:string, server:string, episode:number}>>
+  animeLinks: AnimeLinks,
+  setSelectedServer: React.Dispatch<React.SetStateAction<{ src: string, server: string, episode: number }>>
 ) => {
 
   const watchLinks = animeLinks.links.watch_links;
 
   const servers = Object.keys(watchLinks);
 
-  return servers.map( server => {
+  return servers.map(server => {
 
-    return watchLinks[server].map( link => (
-      <li data-value={link} className="episode-server" data-bs-dismiss="modal" onClick={ () => animeLinkClick({src:link, server, episode:animeLinks.chapter}, setSelectedServer) }> 
+    return watchLinks[server].map(link => (
+      <li key={uuid()} data-value={link} className="episode-server" data-bs-dismiss="modal" onClick={() => animeLinkClick({ src: link, server, episode: animeLinks.chapter }, setSelectedServer)}>
         <div> <img className="server-icon" src={linkIcons[server as keyof typeof linkIcons]} /> {server} </div>
-        { ['okru', 'fembed', 'mega'].includes(server) && <i className="material-icons">recommend</i> }
+        {['okru', 'fembed', 'mega'].includes(server) && <i className="material-icons">recommend</i>}
       </li>
     ));
-    
+
   });
 
 }

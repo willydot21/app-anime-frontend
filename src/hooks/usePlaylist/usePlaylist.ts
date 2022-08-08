@@ -1,13 +1,14 @@
 
 import { useEffect, useState } from "react";
 import { ArticleItem } from "../../services/api/tioanime/api-types";
+import { fetchAnimeFollowing } from "../useFollowing/utils";
 import { handleGetRefreshToken } from "../useUserHook/utils";
 import { UsePlaylist } from "./hook-types";
-import { addAnimeToPlaylist, handleGetFollowingList, parseEnglishPlaylist, removeAnimeFromPlaylist } from "./utils";
+import { addAnimeToPlaylist, parseEnglishPlaylist, removeAnimeFromPlaylist } from "./utils";
 
-export default function usePlaylist(anime: ArticleItem): UsePlaylist {
+export default function usePlaylist(anime: ArticleItem, logged: boolean): UsePlaylist {
 
-  const [isChanged, setIsChanged] = useState(false);
+  const [changed, setChanged] = useState(false);
 
   const [playlist, setPlaylist] = useState('Seleccionar');
 
@@ -19,9 +20,11 @@ export default function usePlaylist(anime: ArticleItem): UsePlaylist {
 
     if (playlist !== oldPlaylist) {
 
-      console.log('new: ', playlist, ' old:', oldPlaylist);
+      if (oldPlaylist !== 'Seleccionar') {
 
-      if (oldPlaylist !== 'Seleccionar') await removeAnimeFromPlaylist(oldPlaylist, anime.id);
+        await removeAnimeFromPlaylist(oldPlaylist, anime.id);
+
+      }
 
       await addAnimeToPlaylist(playlist, anime);
 
@@ -33,13 +36,13 @@ export default function usePlaylist(anime: ArticleItem): UsePlaylist {
 
     await handleGetRefreshToken();
 
-    const followedList = await handleGetFollowingList();
+    const followingAnime = await fetchAnimeFollowing(anime.id);
 
-    const results = followedList.data.filter((el: any) => el.id === anime.id)[0];
+    if (followingAnime) {
 
-    if (results) {
+      const parsedPlaylist = parseEnglishPlaylist[followingAnime.playlist[0] as keyof typeof parseEnglishPlaylist];
 
-      const parsedPlaylist = parseEnglishPlaylist[results.playlist[0] as keyof typeof parseEnglishPlaylist];
+      setChanged(true);
 
       setPlaylist(parsedPlaylist);
 
@@ -49,21 +52,22 @@ export default function usePlaylist(anime: ArticleItem): UsePlaylist {
 
   useEffect(() => {
 
-    updatePlaylist();
+    setupPlaylist();
+
+  }, []);
+
+  useEffect(() => {
+
+    if (!changed) updatePlaylist();
+
+    if (changed) setChanged(false);
 
     setOldPlaylist(playlist);
 
   }, [playlist]);
 
-  useEffect(() => {
-
-    setupPlaylist();
-
-  }, []);
-
   return {
-    playlistState: [playlist, setPlaylist],
-    isChanged
+    playlistState: [playlist, setPlaylist]
   }
 
 }

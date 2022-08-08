@@ -14,6 +14,7 @@ import EpisodePlayer from './pages/episode-player/episode-player';
 import AppSettings from './pages/settings/settings';
 import useUser from './hooks/useUserHook/useUser';
 import AppChangePassword from './pages/change-password/change-password';
+import AppFollowing from './pages/user-following/following';
 
 function App() {
 
@@ -70,6 +71,8 @@ function App() {
         } />
 
         <Route path="/change-password" element={<AppChangePassword logged={logged} handleChangePassword={user.changePassword} />} />
+
+        <Route path="/following" element={<AppFollowing logged={logged} />} />
 
       </Routes>
 

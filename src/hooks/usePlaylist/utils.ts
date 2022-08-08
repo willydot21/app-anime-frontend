@@ -1,6 +1,5 @@
 
-import { FollowingItem } from "../useUserHook/hook-types";
-import { authUrl, getFetchOptions, getOptions } from "../../services/constants";
+import { authUrl, getFetchOptions } from "../../services/constants";
 import { ArticleItem } from "../../services/api/tioanime/api-types";
 
 export const parseSpanishPlaylist = {
@@ -13,16 +12,6 @@ export const parseEnglishPlaylist = {
   'considering': 'Considerando',
   'watching': 'Siguiendo',
   'watched': 'Finalizado'
-}
-
-export const handleGetFollowingList = async () => {
-
-  const requestFollowing = await fetch(authUrl + '/animeinfo/following', getOptions);
-
-  const followingList = await requestFollowing.json();
-
-  return followingList;
-
 }
 
 export const addAnimeToPlaylist = async (playlist: string, animeArticle: ArticleItem) => {

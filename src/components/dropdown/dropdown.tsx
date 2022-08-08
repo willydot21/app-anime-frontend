@@ -1,4 +1,5 @@
 
+import { v4 as uuid } from 'uuid';
 import { useRef, useState } from 'react';
 import { AppDropdownProps } from './dropdown-types';
 import { dropdownClick } from './dropdown.util';
@@ -31,7 +32,7 @@ const AppDropdown = ({ options, name, externalState }: AppDropdownProps) => {
       <ul className="app-dropdown-options" ref={dropdownOptions}>
         {
           options.map(option => (
-            <li onClick={() => setSelected(option)}>{option}</li>
+            <li key={uuid()} onClick={() => setSelected(option)}>{option}</li>
           ))
         }
       </ul>
