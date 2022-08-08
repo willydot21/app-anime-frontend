@@ -1,5 +1,5 @@
 
-import { fixBodyOverflow } from "../../../app.utils";
+import { HandleServerEpisodeProps } from "./anime-episodes-types";
 
 export const handlerSetServerEpisode = (
   { episode, id }: { episode: number, id: string },
@@ -11,5 +11,21 @@ export const handlerSetServerEpisode = (
   const $nextState = { id, episode };
 
   if (prevServerEpisode.episode !== episode) setServerEpisode($nextState);
+
+}
+
+export const handleServerEpisode = ({ watched, setWatched, episode, animeEpisodeActions }: HandleServerEpisodeProps) => {
+
+  if (watched) {
+
+    animeEpisodeActions.removeEpisodeFromHistory(episode);
+
+  } else {
+
+    animeEpisodeActions.addEpisodeToHistory(episode);
+
+  }
+
+  setWatched(!watched);
 
 }

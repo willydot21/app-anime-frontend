@@ -1,7 +1,7 @@
 
-export const baseUrl = 'http://localhost:3001';
+export const baseUrl = 'https://app-anime-backend.herokuapp.com';
 
-export const authUrl = 'http://localhost:3001/auth/user';
+export const authUrl = 'https://app-anime-backend.herokuapp.com/auth/user';
 
 export const getFetchOptions = (body: string = '', method: string = 'POST'): RequestInit => ({
   method,

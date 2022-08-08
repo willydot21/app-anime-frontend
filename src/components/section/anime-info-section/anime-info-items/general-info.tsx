@@ -1,4 +1,5 @@
 
+import { v4 as uuid } from 'uuid';
 import { AnimeInfo } from "../../../../services/api/tioanime/api-types";
 import AnimeInfoGenres from "./genres/anime-info-genres";
 
@@ -31,7 +32,7 @@ const AnimeGenres = ({ genres }: { genres: AnimeInfo['genres'] }) => (
 
 const AnimeDetails = ({ animeInfo }: { animeInfo: AnimeInfo }) => (<>{
   ['type', 'status', 'malId', 'season'].map(prop => (
-    <div className="anime-info-margin">
+    <div className="anime-info-margin" key={uuid()} >
       <h6 className="anime-info-subtitle"> {sectionDetailWrapper[prop as keyof typeof sectionDetailWrapper]} </h6>
       <p className="anime-info-text">
         {animeInfo[prop as keyof typeof animeInfo] as string | undefined || 'Indefinido'}
@@ -42,7 +43,7 @@ const AnimeDetails = ({ animeInfo }: { animeInfo: AnimeInfo }) => (<>{
 
 const AnimeMainInfo = ({ animeInfo }: { animeInfo: AnimeInfo }) => (<>{
   ['name', 'synopsis'].map(prop => (
-    <div className="anime-info-section">
+    <div className="anime-info-section" key={uuid()}>
       <h5 className="anime-info-title"> {sectionDetailWrapper[prop as keyof typeof sectionDetailWrapper]}</h5>
       <p className="anime-info-text">
         {animeInfo[prop as keyof typeof animeInfo] as string | undefined || `No hay ${sectionDetailWrapper[prop as keyof typeof sectionDetailWrapper]}`}

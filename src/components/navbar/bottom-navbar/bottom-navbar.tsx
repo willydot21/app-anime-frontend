@@ -20,7 +20,7 @@ const BottomNavbar = () => {
         <p> Buscar </p>
       </NavLink>
 
-      <NavLink to="#" className="bottom-navbar-link">
+      <NavLink to="/following" className="bottom-navbar-link">
         <span className="material-icons">
           star_half
         </span>

@@ -1,5 +1,4 @@
 
-import ReleatedAnimes from "../anime-releated/releated-animes";
 import AnimeEpisodes from "../anime-episodes/anime-episodes";
 import { AnimeInfo } from "../../../services/api/tioanime/api-types";
 import AnimeInfoSection from "../anime-info-section/anime-info-section";
