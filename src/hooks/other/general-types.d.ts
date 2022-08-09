@@ -4,12 +4,12 @@ export interface SERVER_ERROR {
   data: string;
 }
 
-export interface SERVER_SUCCESS {
+export interface SERVER_SUCCESS<T> {
   success: true;
-  data: any
+  data: T;
 }
 
-export type SERVER_RESPONSE = SERVER_SUCCESS | SERVER_ERROR;
+export type SERVER_RESPONSE<T> = SERVER_SUCCESS<T> | SERVER_ERROR;
 
 export interface AnimeArticle {
   name: string;
@@ -24,6 +24,8 @@ export interface AnimeData {
 
 export interface AnimeFollowingItem {
   id: string;
+  poster: string;
+  name: string;
   playlist: string[];
 }
 

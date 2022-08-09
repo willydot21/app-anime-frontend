@@ -1,0 +1,15 @@
+#app-following {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1444px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.fill-logo {
+  width: 50%;
+  max-width: 300px;
+  margin: 100px;
+}

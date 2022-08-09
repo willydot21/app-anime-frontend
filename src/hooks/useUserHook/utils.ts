@@ -1,7 +1,7 @@
 
 import PostError from "./onError";
 import { Navigate } from "react-router-dom";
-import { ChangePasswordHandlerTypes, FollowingItem } from "./hook-types";
+import { ChangePasswordHandlerTypes } from "./hook-types";
 import { getFetchOptions, baseUrl, authUrl } from "../../services/constants";
 
 const getBodyFromForm = (form: HTMLFormElement, method: string) => {

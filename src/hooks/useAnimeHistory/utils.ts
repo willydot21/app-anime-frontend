@@ -31,7 +31,7 @@ export async function handleAddEpisodeToHistory(id: string, episode: string) {
 
   const jsonResponse = await req.json();
 
-  return jsonResponse as SERVER_RESPONSE;
+  return jsonResponse as SERVER_RESPONSE<string>;
 
 }
 
@@ -47,6 +47,6 @@ export async function handleRemoveEpisodeFromHistory(id: string, episode: string
 
   const jsonResponse = await req.json();
 
-  return jsonResponse as SERVER_RESPONSE;
+  return jsonResponse as SERVER_RESPONSE<string>;
 
 }

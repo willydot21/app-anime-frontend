@@ -2,8 +2,8 @@
   position: relative;
   display: flex;
   overflow: hidden;
-  background-color: rgb(8, 8, 8);
-  width: 100%;
+  background-color: rgb(0, 0, 0);
+  overflow-x: auto;
 }
 
 .navigation-bar-button {
@@ -37,18 +37,18 @@
 
 @media (pointer:fine) {
   .navigation-bar-button:hover {
-    background-color: rgb(13, 13, 13);
+    background-color: rgb(8, 8, 8);
   }
 
   .navigation-bar-button:active {
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(15, 15, 15);
   }
 }
 
 @media (pointer:none),
 (pointer:coarse) {
   .navigation-bar-button:active {
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(15, 15, 15);
   }
 }
 
