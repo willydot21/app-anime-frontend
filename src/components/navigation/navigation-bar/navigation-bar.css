@@ -1,3 +1,16 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.navigation-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.navigation-bar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 .navigation-bar {
   position: relative;
   display: flex;

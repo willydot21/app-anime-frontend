@@ -3,3 +3,11 @@
   max-width: 1450px;
   padding: 0px 10px;
 }
+
+.app-anime .app-back-topbar {
+  position: absolute;
+}
+
+.app-anime .app-back-topbar h3 {
+  color: white;
+}

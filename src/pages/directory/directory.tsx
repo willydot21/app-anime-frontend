@@ -7,34 +7,37 @@ import SearchWrapper from "../../components/section/search-wrapper/search-wrappe
 import { FiltersResult, Filters } from "../../services/api/tioanime/api-types";
 import { handleFiltersLoadMore, handlerFindFilters, setQueryParams } from "./directory.utils";
 import { useSearchParams } from 'react-router-dom';
+import AppBackTopbar from '../../components/navbar/back-topbar/back-topbar';
 
-const itemInitialState:FiltersResult = {url:'', page:0, total_pages:0, results:[]}
+const itemInitialState: FiltersResult = { url: '', page: 0, total_pages: 0, results: [] }
 
 const AppDirectory = () => {
-  
-  const [ searchParams ] = useSearchParams();
-  const [ filtersForm, setFiltersForm ] = useState<Filters>(setQueryParams(searchParams));
-  const [ filterItems, setFilterItems ] = useState<FiltersResult>(itemInitialState);
+
+  const [searchParams] = useSearchParams();
+  const [filtersForm, setFiltersForm] = useState<Filters>(setQueryParams(searchParams));
+  const [filterItems, setFilterItems] = useState<FiltersResult>(itemInitialState);
 
   useEffect(() => {
 
     setFilterItems(itemInitialState);
-    
+
     handlerFindFilters(setFilterItems, filtersForm);
 
   }, [filtersForm]);
 
   return (
-    <div className="app-series" style={{display:'flex', justifyContent:'center', flexDirection:'column', alignItems:'center'}}>
+    <div className="app-series" style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
 
-      <FilterTags filters={filtersForm}/>
+      <AppBackTopbar section_name="Directorio" />
+
+      <FilterTags filters={filtersForm} />
 
       <FiltersForm externalSetForm={setFiltersForm} />
 
-      <SearchWrapper 
+      <SearchWrapper
         queryItemsState={[filterItems, setFilterItems]}
         callbackLoadMore={() => handleFiltersLoadMore({
-          filterItemsState:[filterItems, setFilterItems], 
+          filterItemsState: [filterItems, setFilterItems],
           filtersForm
         })}
       />

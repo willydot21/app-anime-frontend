@@ -2,7 +2,24 @@
 import './bottom-navbar.css';
 import { NavLink } from "react-router-dom";
 
-const BottomNavbar = () => {
+const AuthFollowing = ({ logged }: { logged: boolean }) => (
+  logged
+    ? <NavLink to="/following" className="bottom-navbar-link">
+      <span className="material-icons">
+        star_half
+      </span>
+      <p> Siguiendo </p>
+    </NavLink>
+    : <AlertAccount />
+)
+
+const AlertAccount = () => (
+  <div className="alert alert-warning d-flex align-items-center account-alert" role="alert">
+    <p> Crea una cuenta para poder hacer seguimiento de tus animes! </p>
+  </div>
+)
+
+const BottomNavbar = ({ logged }: { logged: boolean }) => {
   return (
     <div className="bottom-navbar">
 
@@ -20,12 +37,7 @@ const BottomNavbar = () => {
         <p> Buscar </p>
       </NavLink>
 
-      <NavLink to="/following" className="bottom-navbar-link">
-        <span className="material-icons">
-          star_half
-        </span>
-        <p> Siguiendo </p>
-      </NavLink>
+      <AuthFollowing logged={logged} />
 
     </div>
   )

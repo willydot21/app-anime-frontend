@@ -8,9 +8,11 @@ import AnimeInfoBanner from '../../components/section/anime-info-section/anime-i
 import AnimeNavigationItems from "../../components/section/anime-navigation-items/anime-navigation-items";
 import { fetchAnimeInfo, initialState } from "./anime.utils";
 import { AnimeInfo } from '../../services/api/tioanime/api-types';
+import AppBackTopbar from '../../components/navbar/back-topbar/back-topbar';
 
 const RenderAppAnime = ({ animeInfo }: { animeInfo: AnimeInfo }) => (
   <div className="app-anime">
+    <AppBackTopbar section_name={animeInfo.name} />
     <AnimeInfoBanner banner={animeInfo.banner} poster={animeInfo.poster} animeid={animeInfo.anime_id} />
     <div className="small-margin">
       <Navigation elements={AnimeNavigationItems({ animeInfo })} defaultItem="Información" />

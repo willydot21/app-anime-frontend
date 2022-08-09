@@ -1,9 +1,8 @@
-
 .no-elements {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 50vh;
   font-size: 30px;
   color: rgb(51, 51, 51);
   font-weight: 600;

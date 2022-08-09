@@ -56,7 +56,7 @@ function App() {
           <AppLogin {...{ logged, login: user.login }} />
         } />
 
-        <Route path="/" element={<AppHome />} />
+        <Route path="/" element={<AppHome logged={logged} />} />
 
         <Route path="/anime/:id" element={<AppAnime />} />
 
