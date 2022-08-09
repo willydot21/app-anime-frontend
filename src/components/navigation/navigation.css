@@ -1,3 +1,7 @@
+.navigation {
+  width: 100%;
+}
+
 .navigation-hidden {
   display: none;
 }

@@ -2,8 +2,6 @@ import React from "react";
 
 export type ChangePasswordFunction = (e: React.FormEvent<HTMLFormElement>, setNavigate: React.Dispatch<React.SetStateAction<boolean>>) => void;
 
-export interface FollowingItem { id: string; playlist: Array<string>; }
-
 export interface UseUser {
   logged: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
   data: [User, React.Dispatch<React.SetStateAction<User>>]

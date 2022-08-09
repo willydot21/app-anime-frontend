@@ -1,7 +1,8 @@
 
-import { AnimeFollowingItem } from "../other/general-types";
+import { AnimeFollowingItem, SERVER_RESPONSE, SERVER_SUCCESS, SERVER_ERROR } from "../other/general-types";
 import { authUrl } from "../../services/constants";
 import { getOptions } from "../../services/constants";
+import { handleGetRefreshToken } from "../useUserHook/utils";
 
 export const fetchAnimeFollowing = async (id: string) => {
 
@@ -17,12 +18,47 @@ export const fetchAnimeFollowing = async (id: string) => {
 
 }
 
-export const fetchFollowingList = async () => {
+export const fetchFollowingPlaylist = async (playlist: string) => {
 
-  const requestFollowing = await fetch(authUrl + '/animeinfo/following', getOptions);
+  const url = authUrl + '/animeinfo/user-playlist/' + playlist;
 
-  const followingList = await requestFollowing.json();
+  const requestFollowingPlaylist = await fetch(url, getOptions);
 
-  return followingList;
+  const jsonResponse = await requestFollowingPlaylist.json();
+
+  return jsonResponse;
+
+}
+
+export const fetchFollowing = async () => {
+
+  const url = authUrl + '/animeinfo/following';
+
+  const requestFollowing = await fetch(url, getOptions);
+
+  const jsonResponse = await requestFollowing.json();
+
+  return jsonResponse;
+
+}
+
+export const setDataIfNotError = async <T>(
+  response: SERVER_RESPONSE<T>,
+  setData: React.Dispatch<React.SetStateAction<T>>
+) => {
+  if (!(response as SERVER_ERROR).error)
+    setData((response as SERVER_SUCCESS<T>).data);
+}
+
+export const handleSetFollowingList = async <T>(
+  playlist: string,
+  setData: React.Dispatch<React.SetStateAction<T>>
+) => {
+
+  await handleGetRefreshToken();
+
+  const response = (await fetchFollowingPlaylist(playlist)) as SERVER_RESPONSE<T>;
+
+  setDataIfNotError(response, setData);
 
 }

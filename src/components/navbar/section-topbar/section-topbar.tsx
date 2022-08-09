@@ -3,23 +3,17 @@ import './section-topbar.css';
 import { SectionTopbarProps } from "./section-topbar-types";
 import { NavLink } from "react-router-dom";
 
-const TopbarLink = ({link}:{link?:string}) => {
+const TopbarLink = ({ link }: { link?: string }) => (
+  link
+    ? <NavLink to={link}>
+      <span className="material-icons">
+        chevron_right
+      </span>
+    </NavLink>
+    : <></>
+);
 
-  if (link) {
-    return (
-      <NavLink to={link}>
-        <span className="material-icons">
-          chevron_right
-        </span>
-      </NavLink>
-    );
-  }
-
-  return (<></>);
-  
-}
-
-const SectionTopbar = ({section, link}:SectionTopbarProps) => {
+const SectionTopbar = ({ section, link }: SectionTopbarProps) => {
 
   return (
     <div className="section-topbar">
