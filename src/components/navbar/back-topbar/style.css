@@ -3,15 +3,13 @@
   align-items: center;
   width: 100%;
   max-width: 1444px;
-  background-color: black;
   padding: 25px 5px;
-  position: fixed;
-  top: 0;
   z-index: 1000000;
 }
 
 .app-back-topbar h3 {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  color: rgb(200, 200, 200);
   margin-left: 30px;
   margin-bottom: 0px;
 }

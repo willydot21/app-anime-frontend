@@ -15,15 +15,19 @@ export default function useFollowing(): UseFollowing {
 
   const [watched, setWatched] = useState<AnimeArticle[]>([]);
 
-  const setupFollowing = () => {
+  const [isLoaded, setIsloaded] = useState(false);
 
-    getFollowing();
+  const setupFollowing = async () => {
 
-    fetchConsidering();
+    await getFollowing();
 
-    fetchWatching();
+    await fetchConsidering();
 
-    fetchWatched();
+    await fetchWatching();
+
+    await fetchWatched();
+
+    setIsloaded(true);
 
   }
 
@@ -43,9 +47,14 @@ export default function useFollowing(): UseFollowing {
 
   const fetchWatched = async () => handleSetFollowingList('watched', setWatched);
 
-  useEffect(setupFollowing, []);
+  useEffect(() => {
+
+    setupFollowing();
+
+  }, []);
 
   return {
+    isLoaded,
     allFollowing,
     considering,
     watching,

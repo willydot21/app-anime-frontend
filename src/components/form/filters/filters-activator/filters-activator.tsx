@@ -5,16 +5,18 @@ import { showFiltersForm, setupActivator } from "./filters-activator-utils";
 
 const FiltersActivator = (
   { form, formTop, formActiveState }:
-  { form:React.RefObject<HTMLFormElement>, 
-    formTop:number, 
-    formActiveState:[boolean, React.Dispatch<React.SetStateAction<boolean>>] }
+    {
+      form: React.RefObject<HTMLFormElement>,
+      formTop: number,
+      formActiveState: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
+    }
 ) => {
 
-  const [ formActive, setFormActive ] = formActiveState;
+  const [formActive, setFormActive] = formActiveState;
 
   const $this = useRef<HTMLButtonElement>(null);
 
-  const $className = `filters-activator ${formActive? 'active':''}`;
+  const $className = `filters-activator ${formActive ? 'active' : ''}`;
 
   useEffect(() => setupActivator($this), []);
 
@@ -23,7 +25,7 @@ const FiltersActivator = (
       <span className="material-icons">
         filter_list
       </span>
-      <p className="activator-text">FILTERS</p>
+      <p className="activator-text">FILTROS</p>
     </button>
   );
 

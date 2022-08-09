@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { baseUrl } from "../../services/constants";
 import { UseUser, ChangePasswordHandlerTypes } from "./hook-types";
 import { handleGetRefreshToken, handleChangePassword, registration } from "./utils";
 
@@ -39,7 +40,7 @@ export default function useUser(): UseUser {
 
     localStorage.clear();
 
-    fetch('http://localhost:3001/logout', { credentials: "include" }).catch(err => console.error(err));
+    fetch(baseUrl + '/logout', { credentials: "include" }).catch(err => console.error(err));
 
   }
 

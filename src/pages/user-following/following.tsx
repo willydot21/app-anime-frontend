@@ -18,24 +18,23 @@ const AuthFollowing = () => {
     'Finalizado': <FollowingList followingList={following.watched} section_name='Finalizado' />
   };
 
-  const isLoaded =
-    following.allFollowing.length &&
-    following.considering.length &&
-    following.watching.length &&
-    following.watched.length;
-
   return (
-    isLoaded
+    following.isLoaded
       ? <div id="app-following">
         <AppBackTopbar section_name="Siguiendo" />
-        <img src="https://i.pinimg.com/originals/e0/35/f1/e035f1b9fd4042457f76e18c40799069.png" className="fill-logo" />
-        <Navigation elements={followingSections} />
+        <div className="separator">
+          <div className="fill-logo">
+            <img src="https://i.pinimg.com/originals/e0/35/f1/e035f1b9fd4042457f76e18c40799069.png" />
+          </div>
+          <Navigation elements={followingSections} />
+        </div>
       </div>
       : <LoadingItems />
   );
 }
 
 const AppFollowing = ({ logged }: { logged: boolean }) => {
+
   return (
     logged
       ? <AuthFollowing />
