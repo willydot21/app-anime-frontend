@@ -1,6 +1,7 @@
 
 import './bottom-navbar.css';
 import { NavLink } from "react-router-dom";
+import AlertAccount from '../../others/alert-account';
 
 const AuthFollowing = ({ logged }: { logged: boolean }) => (
   logged
@@ -11,12 +12,6 @@ const AuthFollowing = ({ logged }: { logged: boolean }) => (
       <p> Siguiendo </p>
     </NavLink>
     : <AlertAccount />
-)
-
-const AlertAccount = () => (
-  <div className="alert alert-warning d-flex align-items-center account-alert" role="alert">
-    <p> Crea una cuenta para poder hacer seguimiento de tus animes! </p>
-  </div>
 )
 
 const BottomNavbar = ({ logged }: { logged: boolean }) => {
