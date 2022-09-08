@@ -10,7 +10,7 @@ const SettingsVideo = ({ usePlayerState }: {
   return (
     <SettingsSection name="Ajustes de video">
       <div className="form-check form-switch setting-link">
-        <label className="form-check-label" htmlFor="use-player"> Eliminar anuncios (Beta)</label>
+        <label className="form-check-label" htmlFor="use-player"> (REMOVE ADS COMING SOON) </label>
         <input className="form-check-input settings-checkbox" type="checkbox" id="use-player" onClick={() => setUsePlayer(!usePlayer)}/>
       </div>
     </SettingsSection>
