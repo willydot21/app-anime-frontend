@@ -2,10 +2,12 @@
 import React, { useRef, useEffect } from "react";
 
 const removeAlert = ($this: React.RefObject<HTMLDivElement>) => {
-  const timeOut = setTimeout(() => {
-    if ($this.current) $this.current.remove();
-    clearTimeout(timeOut);
-  }, 2000);
+  try {
+    const timeOut = setTimeout(() => {
+      if ($this && $this.current) $this.current.remove();
+      clearTimeout(timeOut);
+    }, 2000);
+  } catch (error) { console.log(error); }
 }
 
 const AlertAccount = () => {
